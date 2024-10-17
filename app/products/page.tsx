@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import { getPaginatedVegetables } from "../data/vegetables";
-import { Product } from "../types/Product";
+import { Product } from "../types/product-type";
 
 export default function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);

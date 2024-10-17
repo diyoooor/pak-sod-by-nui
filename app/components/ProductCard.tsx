@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { Product } from "../types/Product";
+import { Product } from "../types/product-type";
 
 const ProductCard: React.FC<Product> = ({ name, prices }) => {
   const [selectedUnit, setSelectedUnit] = useState<string>("1kg");
