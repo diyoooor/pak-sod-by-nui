@@ -6,9 +6,9 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/tomato.jpg",
     prices: [
-      { id: 1, value: 3.99, label: "1kg" },
-      { id: 2, value: 2.49, label: "500g" },
-      { id: 3, value: 1.49, label: "250g" },
+      { id: 1, value: 3.99, label: "กก." },
+      { id: 2, value: 2.49, label: "ถุง" },
+      { id: 3, value: 1.49, label: "กล่อง" },
     ],
   },
   {
@@ -18,8 +18,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/lemongrass.jpg",
     prices: [
-      { id: 1, value: 2.99, label: "1kg" },
-      { id: 2, value: 1.99, label: "500g" },
+      { id: 1, value: 2.99, label: "กก." },
+      { id: 2, value: 1.99, label: "ถุง" },
     ],
   },
   {
@@ -29,8 +29,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/okra.jpg",
     prices: [
-      { id: 1, value: 4.99, label: "1kg" },
-      { id: 2, value: 3.49, label: "500g" },
+      { id: 1, value: 4.99, label: "กก." },
+      { id: 2, value: 3.49, label: "ถุง" },
     ],
   },
   {
@@ -40,8 +40,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/carrot.jpg",
     prices: [
-      { id: 1, value: 3.79, label: "1kg" },
-      { id: 2, value: 2.29, label: "500g" },
+      { id: 1, value: 3.79, label: "กก." },
+      { id: 2, value: 2.29, label: "ถุง" },
     ],
   },
   {
@@ -51,8 +51,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/pumpkin.jpg",
     prices: [
-      { id: 1, value: 4.29, label: "1kg" },
-      { id: 2, value: 2.99, label: "500g" },
+      { id: 1, value: 4.29, label: "กก." },
+      { id: 2, value: 2.99, label: "ถุง" },
     ],
   },
   {
@@ -62,8 +62,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/eggplant.jpg",
     prices: [
-      { id: 1, value: 3.19, label: "1kg" },
-      { id: 2, value: 1.99, label: "500g" },
+      { id: 1, value: 3.19, label: "กก." },
+      { id: 2, value: 1.99, label: "ถุง" },
     ],
   },
   {
@@ -73,8 +73,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/spiny_gourd.jpg",
     prices: [
-      { id: 1, value: 5.49, label: "1kg" },
-      { id: 2, value: 3.99, label: "500g" },
+      { id: 1, value: 5.49, label: "กก." },
+      { id: 2, value: 3.99, label: "ถุง" },
     ],
   },
   {
@@ -84,8 +84,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/holy_basil.jpg",
     prices: [
-      { id: 1, value: 2.59, label: "1kg" },
-      { id: 2, value: 1.49, label: "500g" },
+      { id: 1, value: 2.59, label: "กก." },
+      { id: 2, value: 1.49, label: "ถุง" },
     ],
   },
   {
@@ -95,8 +95,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/ivy_gourd.jpg",
     prices: [
-      { id: 1, value: 2.99, label: "1kg" },
-      { id: 2, value: 1.69, label: "500g" },
+      { id: 1, value: 2.99, label: "กก." },
+      { id: 2, value: 1.69, label: "ถุง" },
     ],
   },
   {
@@ -106,8 +106,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/bitter_bean.jpg",
     prices: [
-      { id: 1, value: 6.99, label: "1kg" },
-      { id: 2, value: 4.49, label: "500g" },
+      { id: 1, value: 6.99, label: "กก." },
+      { id: 2, value: 4.49, label: "ถุง" },
     ],
   },
   {
@@ -117,8 +117,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/cucumber.jpg",
     prices: [
-      { id: 1, value: 1.99, label: "1kg" },
-      { id: 2, value: 1.09, label: "500g" },
+      { id: 1, value: 1.99, label: "กก." },
+      { id: 2, value: 1.09, label: "ถุง" },
     ],
   },
   {
@@ -128,8 +128,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/water_spinach.jpg",
     prices: [
-      { id: 1, value: 2.29, label: "1kg" },
-      { id: 2, value: 1.29, label: "500g" },
+      { id: 1, value: 2.29, label: "กก." },
+      { id: 2, value: 1.29, label: "ถุง" },
     ],
   },
   {
@@ -139,8 +139,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/beetroot.jpg",
     prices: [
-      { id: 1, value: 5.19, label: "1kg" },
-      { id: 2, value: 2.99, label: "500g" },
+      { id: 1, value: 5.19, label: "กก." },
+      { id: 2, value: 2.99, label: "ถุง" },
     ],
   },
   {
@@ -150,8 +150,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/bitter_melon.jpg",
     prices: [
-      { id: 1, value: 4.39, label: "1kg" },
-      { id: 2, value: 2.29, label: "500g" },
+      { id: 1, value: 4.39, label: "กก." },
+      { id: 2, value: 2.29, label: "ถุง" },
     ],
   },
   {
@@ -161,8 +161,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/thai_basil.jpg",
     prices: [
-      { id: 1, value: 2.19, label: "1kg" },
-      { id: 2, value: 1.19, label: "500g" },
+      { id: 1, value: 2.19, label: "กก." },
+      { id: 2, value: 1.19, label: "ถุง" },
     ],
   },
   {
@@ -172,8 +172,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/winter_melon.jpg",
     prices: [
-      { id: 1, value: 3.59, label: "1kg" },
-      { id: 2, value: 1.99, label: "500g" },
+      { id: 1, value: 3.59, label: "กก." },
+      { id: 2, value: 1.99, label: "ถุง" },
     ],
   },
   {
@@ -183,8 +183,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/choy_sum.jpg",
     prices: [
-      { id: 1, value: 2.79, label: "1kg" },
-      { id: 2, value: 1.79, label: "500g" },
+      { id: 1, value: 2.79, label: "กก." },
+      { id: 2, value: 1.79, label: "ถุง" },
     ],
   },
   {
@@ -194,8 +194,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/spinach.jpg",
     prices: [
-      { id: 1, value: 4.19, label: "1kg" },
-      { id: 2, value: 2.29, label: "500g" },
+      { id: 1, value: 4.19, label: "กก." },
+      { id: 2, value: 2.29, label: "ถุง" },
     ],
   },
   {
@@ -205,8 +205,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/luffa.jpg",
     prices: [
-      { id: 1, value: 3.99, label: "1kg" },
-      { id: 2, value: 1.99, label: "500g" },
+      { id: 1, value: 3.99, label: "กก." },
+      { id: 2, value: 1.99, label: "ถุง" },
     ],
   },
   {
@@ -216,8 +216,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/broccoli.jpg",
     prices: [
-      { id: 1, value: 6.19, label: "1kg" },
-      { id: 2, value: 3.59, label: "500g" },
+      { id: 1, value: 6.19, label: "กก." },
+      { id: 2, value: 3.59, label: "ถุง" },
     ],
   },
   {
@@ -227,8 +227,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/sesbania.jpg",
     prices: [
-      { id: 1, value: 4.29, label: "1kg" },
-      { id: 2, value: 2.29, label: "500g" },
+      { id: 1, value: 4.29, label: "กก." },
+      { id: 2, value: 2.29, label: "ถุง" },
     ],
   },
   {
@@ -238,8 +238,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/kaffir_lime.jpg",
     prices: [
-      { id: 1, value: 3.49, label: "1kg" },
-      { id: 2, value: 1.89, label: "500g" },
+      { id: 1, value: 3.49, label: "กก." },
+      { id: 2, value: 1.89, label: "ถุง" },
     ],
   },
   {
@@ -249,8 +249,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/gotu_kola.jpg",
     prices: [
-      { id: 1, value: 3.19, label: "1kg" },
-      { id: 2, value: 1.99, label: "500g" },
+      { id: 1, value: 3.19, label: "กก." },
+      { id: 2, value: 1.99, label: "ถุง" },
     ],
   },
   {
@@ -260,8 +260,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/ginger.jpg",
     prices: [
-      { id: 1, value: 4.99, label: "1kg" },
-      { id: 2, value: 2.99, label: "500g" },
+      { id: 1, value: 4.99, label: "กก." },
+      { id: 2, value: 2.99, label: "ถุง" },
     ],
   },
   {
@@ -271,8 +271,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/turmeric.jpg",
     prices: [
-      { id: 1, value: 3.89, label: "1kg" },
-      { id: 2, value: 1.89, label: "500g" },
+      { id: 1, value: 3.89, label: "กก." },
+      { id: 2, value: 1.89, label: "ถุง" },
     ],
   },
   {
@@ -282,8 +282,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/garlic.jpg",
     prices: [
-      { id: 1, value: 5.29, label: "1kg" },
-      { id: 2, value: 2.99, label: "500g" },
+      { id: 1, value: 5.29, label: "กก." },
+      { id: 2, value: 2.99, label: "ถุง" },
     ],
   },
   {
@@ -293,8 +293,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/shallot.jpg",
     prices: [
-      { id: 1, value: 4.49, label: "1kg" },
-      { id: 2, value: 2.39, label: "500g" },
+      { id: 1, value: 4.49, label: "กก." },
+      { id: 2, value: 2.39, label: "ถุง" },
     ],
   },
   {
@@ -304,8 +304,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/green_onion.jpg",
     prices: [
-      { id: 1, value: 2.99, label: "1kg" },
-      { id: 2, value: 1.69, label: "500g" },
+      { id: 1, value: 2.99, label: "กก." },
+      { id: 2, value: 1.69, label: "ถุง" },
     ],
   },
   {
@@ -315,8 +315,8 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/long_bean.jpg",
     prices: [
-      { id: 1, value: 3.29, label: "1kg" },
-      { id: 2, value: 1.79, label: "500g" },
+      { id: 1, value: 3.29, label: "กก." },
+      { id: 2, value: 1.79, label: "ถุง" },
     ],
   },
   {
@@ -326,11 +326,15 @@ const vegetables = [
     category: ["ผักยอดนิยม"],
     image: "/images/pumpkin.jpg",
     prices: [
-      { id: 1, value: 4.19, label: "1kg" },
-      { id: 2, value: 2.39, label: "500g" },
+      { id: 1, value: 4.19, label: "กก." },
+      { id: 2, value: 2.39, label: "ถุง" },
     ],
   },
 ];
+
+export const highlightProducts = () => {
+  return vegetables.filter((product) => product.id < 5);
+};
 
 export const getPaginatedVegetables = (page: number, limit: number) => {
   const start = (page - 1) * limit;

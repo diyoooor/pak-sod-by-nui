@@ -11,6 +11,20 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        light: {
+          primary: "#17833C", // Light Olive Green (for main elements)
+          secondary: "#FFD700", // Pastel Yellow (for highlights)
+          accent: "#FFB6C1", // Light Pink (for accents)
+          neutral: "#F5F5DC", // Beige (for background)
+          info: "#E6E6FA", // Lavender (for cards or informational backgrounds)
+        },
+        dark: {
+          primary: "#556B2F", // Dark Olive Green (for main elements)
+          secondary: "#F0E68C", // Khaki (for highlights)
+          accent: "#DC143C", // Crimson (for accents)
+          neutral: "#2F4F4F", // Dark Slate Gray (for background)
+          info: "#483D8B", // Dark Slate Blue (for cards or informational backgrounds)
+        },
       },
     },
   },

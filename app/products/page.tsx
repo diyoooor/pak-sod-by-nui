@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/Product/ProductCard";
 import { getPaginatedVegetables } from "../data/vegetables";
 import { Product } from "../types/product-type";
 
@@ -71,7 +71,7 @@ export default function ProductsPage() {
 
   return (
     <section className="text-center">
-      <div className="text-2xl py-4 border  bg-lime-400 mb-4">
+      <div className="text-2xl py-4 border  bg-light-primary mb-4 text-white">
         รายการสินค้าทั้งหมด
       </div>
 
@@ -107,7 +107,7 @@ export default function ProductsPage() {
         )}
       </div>
 
-      <section className="flex flex-wrap justify-center gap-4">
+      <section className="flex flex-wrap justify-center gap-4 ">
         {filteredProducts.map((product, index) => (
           <ProductCard
             key={index + "-" + product.name}

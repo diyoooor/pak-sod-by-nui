@@ -14,25 +14,21 @@ const Navbar = () => {
 
   const navMenu = [
     {
-      id: 0,
       label: "หน้าหลัก",
       href: "/",
       icon: <IconHome />,
     },
     {
-      id: 1,
-      label: "สินค้า",
-      href: "/products",
-      icon: <IconSearch />,
-    },
-    {
-      id: 2,
       label: "ตะกร้า",
       href: "/cart",
       icon: <IconShoppingCart />,
     },
     {
-      id: 3,
+      label: "ประวัติ",
+      href: "/history",
+      icon: <IconSearch />,
+    },
+    {
       label: "โปรไฟล์",
       href: "/profile",
       icon: <IconBrandApplePodcast />,
