@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { kanit } from "./fonts/font";
-import Navbar from "./components/Navbar";
+import NavbarBottom from "./components/Navbar/NavbarBottom";
+import NavbarHeader from "./components/Navbar/NavbarHeader";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,9 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`p-4 ${kanit.className} mb-20`}>
+      <body className={`${kanit.className} `}>
+        <NavbarHeader />
         {children}
-        <Navbar />
+        <NavbarBottom />
       </body>
     </html>
   );
