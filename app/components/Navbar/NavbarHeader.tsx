@@ -24,16 +24,18 @@ const NavbarHeader = () => {
             navigate.push("/");
           }}
         />
-        <ButtonLink href="/" icon={<IconShoppingCart />} />
-        {isAuthenticated ? (
-          <ButtonLink href="/profile" icon={<IconUser />} />
-        ) : (
-          <ButtonLink
-            href="/"
-            className="border active:bg-green-50"
-            label="เข้าสู่ระบบ"
-          />
-        )}
+        <div className="flex items-center">
+          <ButtonLink href="/" icon={<IconShoppingCart />} />
+          {isAuthenticated ? (
+            <ButtonLink href="/profile" icon={<IconUser />} />
+          ) : (
+            <ButtonLink
+              href="/"
+              className="border active:bg-green-50"
+              label="เข้าสู่ระบบ"
+            />
+          )}
+        </div>
       </div>
     </nav>
   );
