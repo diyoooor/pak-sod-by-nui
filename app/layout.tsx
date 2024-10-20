@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { kanit } from "./fonts/font";
 import NavbarBottom from "./components/Navbar/NavbarBottom";
 import NavbarHeader from "./components/Navbar/NavbarHeader";
 

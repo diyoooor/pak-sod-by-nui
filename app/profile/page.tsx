@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 const ProfilePage = () => {
   const [isEditing, setIsEditing] = useState(false);
@@ -17,8 +17,8 @@ const ProfilePage = () => {
     setIsEditing(!isEditing);
   };
 
-  const handleInputChange = (e: any) => {
-    const { name, value } = e.target;
+  const handleInputChange = (e: FormEvent<HTMLInputElement>) => {
+    const { name, value } = e.currentTarget;
     setProfile((prevProfile) => ({
       ...prevProfile,
       [name]: value,

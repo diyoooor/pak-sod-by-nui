@@ -9,7 +9,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const OrderHistoryPage = () => {
-  const [expandedOrder, setExpandedOrder] = useState(null);
+  const [expandedOrder, setExpandedOrder] = useState<Number>(0);
 
   const [orderStatus, setOrderStatus] = useState([
     {
@@ -43,9 +43,9 @@ const OrderHistoryPage = () => {
     },
   ]);
 
-  const toggleExpandOrder = (orderId) => {
+  const toggleExpandOrder = (orderId: number) => {
     if (expandedOrder === orderId) {
-      setExpandedOrder(null);
+      setExpandedOrder(0);
     } else {
       setExpandedOrder(orderId);
     }

@@ -1,13 +1,30 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { PricePerUnit } from "@/app/types/product-type";
+import { PricePerUnit, Product } from "@/app/types/product-type";
 
-const ProductModal = ({ isOpen, onClose, product, addToCart }) => {
+interface CartItem {
+  product: Product;
+  quantity: number;
+  unit: string;
+}
+interface ProductModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  product: Product;
+  addToCart: (cartItem: CartItem) => void;
+}
+
+const ProductModal: React.FC<ProductModalProps> = ({
+  isOpen,
+  onClose,
+  product,
+  addToCart,
+}) => {
   const [quantity, setQuantity] = useState(1);
   const [selectedPricePerUnit, setSelectedPricePerUnit] = useState(0);
   const [selectedUnit, setSelectedUnit] = useState("1kg");
 
-  const handleQuantityChange = (type) => {
+  const handleQuantityChange = (type: string) => {
     if (type === "increase") {
       setQuantity(quantity + 1);
     } else if (type === "decrease" && quantity > 1) {
@@ -37,7 +54,7 @@ const ProductModal = ({ isOpen, onClose, product, addToCart }) => {
       >
         <div className="text-center mb-4">
           <img
-            src={product.imageUrl}
+            src={product.image}
             alt={product.name}
             className="w-40 h-40 object-cover mx-auto rounded-md"
           />
