@@ -7,11 +7,3 @@ export const kanit = Kanit({
   style: "normal",
   display: "swap",
 });
-
-export const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-poppins",
-  style: "normal",
-  display: "swap",
-});

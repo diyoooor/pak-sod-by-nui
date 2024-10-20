@@ -4,11 +4,11 @@ const vegetables = [
     name: "มะเขือเทศ",
     otherNames: ["Tomato"],
     category: ["ผักยอดนิยม"],
-    image: "/images/tomato.jpg",
+    image: "/images/products/tomato.png",
     prices: [
-      { id: 1, value: 3.99, label: "กก." },
-      { id: 2, value: 2.49, label: "ถุง" },
-      { id: 3, value: 1.49, label: "กล่อง" },
+      { id: 1, value: 35, label: "กก." },
+      { id: 2, value: 150, label: "ถุง" },
+      { id: 3, value: 330, label: "กล่อง" },
     ],
   },
   {
@@ -16,9 +16,9 @@ const vegetables = [
     name: "ตะไคร้",
     otherNames: ["Lemongrass"],
     category: ["ผักยอดนิยม"],
-    image: "/images/lemongrass.jpg",
+    image: "/images/products/lemongrass.png",
     prices: [
-      { id: 1, value: 2.99, label: "กก." },
+      { id: 1, value: 20, label: "กก." },
       { id: 2, value: 1.99, label: "ถุง" },
     ],
   },
@@ -27,9 +27,9 @@ const vegetables = [
     name: "กระเจี๊ยบเขียว",
     otherNames: ["Okra"],
     category: ["ผักยอดนิยม"],
-    image: "/images/okra.jpg",
+    image: "/images/products/okra.png",
     prices: [
-      { id: 1, value: 4.99, label: "กก." },
+      { id: 1, value: 40, label: "กก." },
       { id: 2, value: 3.49, label: "ถุง" },
     ],
   },
@@ -38,9 +38,9 @@ const vegetables = [
     name: "แครอท",
     otherNames: ["Carrot"],
     category: ["ผักยอดนิยม"],
-    image: "/images/carrot.jpg",
+    image: "/images/products/carrot.png",
     prices: [
-      { id: 1, value: 3.79, label: "กก." },
+      { id: 1, value: 35, label: "กก." },
       { id: 2, value: 2.29, label: "ถุง" },
     ],
   },
@@ -49,7 +49,7 @@ const vegetables = [
     name: "ฟักทอง",
     otherNames: ["Pumpkin"],
     category: ["ผักยอดนิยม"],
-    image: "/images/pumpkin.jpg",
+    image: "/images/products/pumpkin.png",
     prices: [
       { id: 1, value: 4.29, label: "กก." },
       { id: 2, value: 2.99, label: "ถุง" },
@@ -60,7 +60,7 @@ const vegetables = [
     name: "มะเขือเปราะ",
     otherNames: ["Thai Eggplant"],
     category: ["ผักยอดนิยม"],
-    image: "/images/eggplant.jpg",
+    image: "/images/products/eggplant.png",
     prices: [
       { id: 1, value: 3.19, label: "กก." },
       { id: 2, value: 1.99, label: "ถุง" },
@@ -71,7 +71,7 @@ const vegetables = [
     name: "ฟักข้าว",
     otherNames: ["Spiny Gourd"],
     category: ["ผักยอดนิยม"],
-    image: "/images/spiny_gourd.jpg",
+    image: "/images/products/spiny_gourd.png",
     prices: [
       { id: 1, value: 5.49, label: "กก." },
       { id: 2, value: 3.99, label: "ถุง" },
@@ -82,7 +82,7 @@ const vegetables = [
     name: "กะเพรา",
     otherNames: ["Holy Basil"],
     category: ["ผักยอดนิยม"],
-    image: "/images/holy_basil.jpg",
+    image: "/images/products/holy_basil.png",
     prices: [
       { id: 1, value: 2.59, label: "กก." },
       { id: 2, value: 1.49, label: "ถุง" },
@@ -93,7 +93,7 @@ const vegetables = [
     name: "ตำลึง",
     otherNames: ["Ivy Gourd"],
     category: ["ผักยอดนิยม"],
-    image: "/images/ivy_gourd.jpg",
+    image: "/images/products/ivy_gourd.png",
     prices: [
       { id: 1, value: 2.99, label: "กก." },
       { id: 2, value: 1.69, label: "ถุง" },
@@ -104,7 +104,7 @@ const vegetables = [
     name: "สะตอ",
     otherNames: ["Bitter Bean"],
     category: ["ผักยอดนิยม"],
-    image: "/images/bitter_bean.jpg",
+    image: "/images/products/bitter_bean.png",
     prices: [
       { id: 1, value: 6.99, label: "กก." },
       { id: 2, value: 4.49, label: "ถุง" },
@@ -115,7 +115,7 @@ const vegetables = [
     name: "แตงกวา",
     otherNames: ["Cucumber"],
     category: ["ผักยอดนิยม"],
-    image: "/images/cucumber.jpg",
+    image: "/images/products/cucumber.png",
     prices: [
       { id: 1, value: 1.99, label: "กก." },
       { id: 2, value: 1.09, label: "ถุง" },
@@ -126,7 +126,7 @@ const vegetables = [
     name: "ผักบุ้ง",
     otherNames: ["Water Spinach"],
     category: ["ผักยอดนิยม"],
-    image: "/images/water_spinach.jpg",
+    image: "/images/products/water_spinach.png",
     prices: [
       { id: 1, value: 2.29, label: "กก." },
       { id: 2, value: 1.29, label: "ถุง" },
@@ -137,7 +137,7 @@ const vegetables = [
     name: "บีทรูท",
     otherNames: ["Beetroot"],
     category: ["ผักยอดนิยม"],
-    image: "/images/beetroot.jpg",
+    image: "/images/products/beetroot.png",
     prices: [
       { id: 1, value: 5.19, label: "กก." },
       { id: 2, value: 2.99, label: "ถุง" },
@@ -148,7 +148,7 @@ const vegetables = [
     name: "มะระขี้นก",
     otherNames: ["Bitter Melon"],
     category: ["ผักยอดนิยม"],
-    image: "/images/bitter_melon.jpg",
+    image: "/images/products/bitter_melon.png",
     prices: [
       { id: 1, value: 4.39, label: "กก." },
       { id: 2, value: 2.29, label: "ถุง" },
@@ -159,7 +159,7 @@ const vegetables = [
     name: "โหระพา",
     otherNames: ["Thai Basil"],
     category: ["ผักยอดนิยม"],
-    image: "/images/thai_basil.jpg",
+    image: "/images/products/thai_basil.png",
     prices: [
       { id: 1, value: 2.19, label: "กก." },
       { id: 2, value: 1.19, label: "ถุง" },
@@ -170,7 +170,7 @@ const vegetables = [
     name: "ฟักเขียว",
     otherNames: ["Winter Melon"],
     category: ["ผักยอดนิยม"],
-    image: "/images/winter_melon.jpg",
+    image: "/images/products/winter_melon.png",
     prices: [
       { id: 1, value: 3.59, label: "กก." },
       { id: 2, value: 1.99, label: "ถุง" },
@@ -181,7 +181,7 @@ const vegetables = [
     name: "กวางตุ้ง",
     otherNames: ["Choy Sum"],
     category: ["ผักยอดนิยม"],
-    image: "/images/choy_sum.jpg",
+    image: "/images/products/choy_sum.png",
     prices: [
       { id: 1, value: 2.79, label: "กก." },
       { id: 2, value: 1.79, label: "ถุง" },
@@ -192,7 +192,7 @@ const vegetables = [
     name: "ปวยเล้ง",
     otherNames: ["Spinach"],
     category: ["ผักยอดนิยม"],
-    image: "/images/spinach.jpg",
+    image: "/images/products/spinach.png",
     prices: [
       { id: 1, value: 4.19, label: "กก." },
       { id: 2, value: 2.29, label: "ถุง" },
@@ -203,7 +203,7 @@ const vegetables = [
     name: "บวบเหลี่ยม",
     otherNames: ["Luffa"],
     category: ["ผักยอดนิยม"],
-    image: "/images/luffa.jpg",
+    image: "/images/products/luffa.png",
     prices: [
       { id: 1, value: 3.99, label: "กก." },
       { id: 2, value: 1.99, label: "ถุง" },
@@ -214,7 +214,7 @@ const vegetables = [
     name: "บร็อคโคลี่",
     otherNames: ["Broccoli"],
     category: ["ผักยอดนิยม"],
-    image: "/images/broccoli.jpg",
+    image: "/images/products/broccoli.png",
     prices: [
       { id: 1, value: 6.19, label: "กก." },
       { id: 2, value: 3.59, label: "ถุง" },
@@ -225,7 +225,7 @@ const vegetables = [
     name: "ดอกแค",
     otherNames: ["Sesbania"],
     category: ["ผักยอดนิยม"],
-    image: "/images/sesbania.jpg",
+    image: "/images/products/sesbania.png",
     prices: [
       { id: 1, value: 4.29, label: "กก." },
       { id: 2, value: 2.29, label: "ถุง" },
@@ -236,7 +236,7 @@ const vegetables = [
     name: "มะกรูด",
     otherNames: ["Kaffir Lime"],
     category: ["ผักยอดนิยม"],
-    image: "/images/kaffir_lime.jpg",
+    image: "/images/products/kaffir_lime.png",
     prices: [
       { id: 1, value: 3.49, label: "กก." },
       { id: 2, value: 1.89, label: "ถุง" },
@@ -247,7 +247,7 @@ const vegetables = [
     name: "บัวบก",
     otherNames: ["Gotu Kola"],
     category: ["ผักยอดนิยม"],
-    image: "/images/gotu_kola.jpg",
+    image: "/images/products/gotu_kola.png",
     prices: [
       { id: 1, value: 3.19, label: "กก." },
       { id: 2, value: 1.99, label: "ถุง" },
@@ -258,7 +258,7 @@ const vegetables = [
     name: "ขิง",
     otherNames: ["Ginger"],
     category: ["ผักยอดนิยม"],
-    image: "/images/ginger.jpg",
+    image: "/images/products/ginger.png",
     prices: [
       { id: 1, value: 4.99, label: "กก." },
       { id: 2, value: 2.99, label: "ถุง" },
@@ -269,7 +269,7 @@ const vegetables = [
     name: "ขมิ้น",
     otherNames: ["Turmeric"],
     category: ["ผักยอดนิยม"],
-    image: "/images/turmeric.jpg",
+    image: "/images/products/turmeric.png",
     prices: [
       { id: 1, value: 3.89, label: "กก." },
       { id: 2, value: 1.89, label: "ถุง" },
@@ -280,7 +280,7 @@ const vegetables = [
     name: "กระเทียม",
     otherNames: ["Garlic"],
     category: ["ผักยอดนิยม"],
-    image: "/images/garlic.jpg",
+    image: "/images/products/garlic.png",
     prices: [
       { id: 1, value: 5.29, label: "กก." },
       { id: 2, value: 2.99, label: "ถุง" },
@@ -291,7 +291,7 @@ const vegetables = [
     name: "หอมแดง",
     otherNames: ["Shallot"],
     category: ["ผักยอดนิยม"],
-    image: "/images/shallot.jpg",
+    image: "/images/products/shallot.png",
     prices: [
       { id: 1, value: 4.49, label: "กก." },
       { id: 2, value: 2.39, label: "ถุง" },
@@ -302,7 +302,7 @@ const vegetables = [
     name: "ต้นหอม",
     otherNames: ["Green Onion"],
     category: ["ผักยอดนิยม"],
-    image: "/images/green_onion.jpg",
+    image: "/images/products/green_onion.png",
     prices: [
       { id: 1, value: 2.99, label: "กก." },
       { id: 2, value: 1.69, label: "ถุง" },
@@ -313,7 +313,7 @@ const vegetables = [
     name: "ถั่วฝักยาว",
     otherNames: ["Long Bean"],
     category: ["ผักยอดนิยม"],
-    image: "/images/long_bean.jpg",
+    image: "/images/products/long_bean.png",
     prices: [
       { id: 1, value: 3.29, label: "กก." },
       { id: 2, value: 1.79, label: "ถุง" },
@@ -324,7 +324,7 @@ const vegetables = [
     name: "ฟักทอง",
     otherNames: ["Pumpkin"],
     category: ["ผักยอดนิยม"],
-    image: "/images/pumpkin.jpg",
+    image: "/images/products/pumpkin.png",
     prices: [
       { id: 1, value: 4.19, label: "กก." },
       { id: 2, value: 2.39, label: "ถุง" },

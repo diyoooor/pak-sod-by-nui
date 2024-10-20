@@ -17,6 +17,7 @@ const config: Config = {
           accent: "#FFB6C1", // Light Pink (for accents)
           neutral: "#F5F5DC", // Beige (for background)
           info: "#E6E6FA", // Lavender (for cards or informational backgrounds)
+          main: "#f0f0f0",
         },
         dark: {
           primary: "#556B2F", // Dark Olive Green (for main elements)

@@ -3,28 +3,86 @@ import Image from "next/image";
 import Link from "next/link";
 import ProductCard from "./components/Product/ProductCard";
 import { Product } from "./types/product-type";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { highlightProducts } from "./data/vegetables";
+import {
+  IconSalad,
+  IconMeat,
+  IconFish,
+  IconEgg,
+  IconBottle,
+  IconToolsKitchen2,
+  IconHourglassLow,
+} from "@tabler/icons-react";
 
 const LandingPage = () => {
   const [products, setProducts] = useState<Product[]>(highlightProducts);
 
-  useEffect(() => {}, []);
+  const _mock_category_ = [
+    {
+      id: 1,
+      label: "ผัก",
+      icon: <IconSalad />,
+    },
+    {
+      id: 2,
+      label: "เนื้อสัตว์",
+      icon: <IconMeat />,
+    },
+    {
+      id: 3,
+      label: "อาหารทะเล",
+      icon: <IconFish />,
+    },
+    {
+      id: 4,
+      label: "ไข่",
+      icon: <IconEgg />,
+    },
+    {
+      id: 5,
+      label: "เครื่องปรุง",
+      icon: <IconBottle />,
+    },
+    {
+      id: 6,
+      label: "ของใช้ในครัว",
+      icon: <IconToolsKitchen2 />,
+    },
+    {
+      id: 7,
+      label: "ของดอง",
+      icon: <IconHourglassLow />,
+    },
+  ];
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <section className="bg-light-primary text-white py-12 text-center">
-        <h1 className="text-4xl font-semibold tracking-widest">
-          โปรโมชัน พิเศษ
-        </h1>
-        <p className="mt-4 text-md  ">
-          สั่งครบ 1,000 ส่งฟรี สะเดา,ปาดัง,ด่านนอก
-        </p>
+    <div className="min-h-screen bg-light-main">
+      <section className="bg-light-primary text-white  text-center">
+        <Image
+          src={"/images/logo/banner.png"}
+          alt="banner"
+          width={1000}
+          height={100}
+          className="w-full h-full object-cover"
+        />
+      </section>
+      <section className="grid grid-flow-col overflow-scroll gap-4 py-12 px-6">
+        {_mock_category_.map((cat, idx) => (
+          <div
+            key={idx}
+            className="px-6 py-4  bg-white text-nowrap rounded-xl flex items-center space-x-2"
+          >
+            <p>{cat.icon}</p> <p className="text-md">{cat.label}</p>
+          </div>
+        ))}
       </section>
 
-      <section className="py-12 px-4 md:px-8 bg-gray-200">
-        <h2 className="text-3xl font-semibold text-center mb-8">สินค้าแนะนำ</h2>
-        <div className="flex flex-wrap justify-center gap-4">
+      <section className="py-10 px-2 md:px-8 bg-gradient-to-br from-[#FF5F6D] to-[#FFC371] m-2 rounded-xl">
+        <h2 className="text-3xl font-semibold text-left mb-10 pl-4">
+          สินค้าราคาพิเศษ
+        </h2>
+        <div className="flex flex-wrap justify-center w-full gap-4">
           {products.map((product) => (
             <ProductCard
               key={product.id}
@@ -34,6 +92,7 @@ const LandingPage = () => {
               category={product.category}
               image={product.image}
               prices={product.prices}
+              className="w-[45%]"
             />
           ))}
         </div>
