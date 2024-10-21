@@ -11,8 +11,8 @@ const NavbarHeader = () => {
   const navigate = useRouter();
 
   return (
-    <nav className="sticky top-0 left-0 w-full bg-white h-20">
-      <div className="flex justify-around items-center py-4 ">
+    <nav className="sticky top-0 left-0 w-full bg-white h-20 px-2">
+      <div className="flex justify-between items-center py-4 ">
         <Image
           src={"/images/logo/logo.png"}
           width={120}
