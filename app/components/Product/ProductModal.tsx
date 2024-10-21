@@ -21,8 +21,10 @@ const ProductModal: React.FC<ProductModalProps> = ({
   addToCart,
 }) => {
   const [quantity, setQuantity] = useState(1);
-  const [selectedPricePerUnit, setSelectedPricePerUnit] = useState(0);
-  const [selectedUnit, setSelectedUnit] = useState("1kg");
+  const [selectedPricePerUnit, setSelectedPricePerUnit] = useState(
+    product.prices[0].value
+  );
+  const [selectedUnit, setSelectedUnit] = useState(product.prices[0].label);
 
   const handleQuantityChange = (type: string) => {
     if (type === "increase") {
@@ -47,7 +49,7 @@ const ProductModal: React.FC<ProductModalProps> = ({
   return (
     <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center">
       <motion.div
-        className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full"
+        className="bg-white p-6 rounded-lg shadow-lg max-w-md w-9/12"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.3 }}
@@ -56,7 +58,7 @@ const ProductModal: React.FC<ProductModalProps> = ({
           <img
             src={product.image}
             alt={product.name}
-            className="w-40 h-40 object-cover mx-auto rounded-md"
+            className="w-40 h-40 object-contain mx-auto rounded-md"
           />
         </div>
 

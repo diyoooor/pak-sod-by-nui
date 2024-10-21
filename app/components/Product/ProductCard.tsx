@@ -31,10 +31,10 @@ const ProductCard: React.FC<ProductCartProps> = ({ className, ...product }) => {
   };
   return (
     <div
-      className={`shadow-md bg-white  p-2 flex flex-col items-center  overflow-hidden rounded-lg   ${className}`}
+      className={`shadow-md  p-2 flex flex-col items-center  overflow-hidden rounded-lg   ${className}`}
     >
       <Image
-        src={product.image ?? "/images/no-image.jpg"}
+        src={product.image || "/images/no-image.jpg"}
         alt={product.name}
         width={200}
         height={200}

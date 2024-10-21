@@ -60,57 +60,17 @@ export default function ProductsPage() {
     return () => clearTimeout(delayDebounceFn);
   }, [searchQuery, products]);
 
-  const handleSearch = (query: string) => {
-    setSuggestions([]);
-    setSearchQuery(query);
-  };
-
-  const handleClearSearch = () => {
-    setSearchQuery("");
-  };
-
   return (
-    <section className="text-center">
-      <div className="text-2xl py-4 border  bg-light-primary mb-4 text-white">
-        รายการสินค้าทั้งหมด
-      </div>
+    <div className="text-center bg-light-main">
+      <section className="text-2xl py-4 border  bg-light-primary mb-4 text-white">
+        รายการสินค้า
+      </section>
 
-      <div className="relative mb-6 max-w-md mx-auto">
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="พิมพ์เพื่อค้นหา"
-          className="w-full p-3 border rounded-lg pl-10 pr-10 focus:outline-none focus:ring-2 focus:ring-green-600"
-        />
-        <div className="absolute left-3 top-3 text-gray-500">🔍</div>
-        {suggestions.length > 0 && (
-          <ul className="absolute bg-white border w-full mt-1 max-h-40 overflow-auto z-10">
-            {suggestions.map((suggestion, index) => (
-              <li
-                key={index}
-                className="p-2 hover:bg-gray-200 cursor-pointer"
-                onClick={() => handleSearch(suggestion)}
-              >
-                {suggestion}
-              </li>
-            ))}
-          </ul>
-        )}
-        {searchQuery && (
-          <button
-            onClick={handleClearSearch}
-            className="absolute right-3 top-3 text-gray-500"
-          >
-            ✖
-          </button>
-        )}
-      </div>
-
-      <section className="flex flex-wrap justify-center gap-4 ">
+      <section className="flex flex-wrap justify-center gap-2 pb-10 px-2">
         {filteredProducts.map((product, index) => (
           <ProductCard
             key={index + "-" + product.name}
+            className="w-[48%] bg-white"
             id={product.id}
             name={product.name}
             otherNames={product.otherNames}
@@ -121,6 +81,6 @@ export default function ProductsPage() {
         ))}
         {loadings && <div className="text-gray-600">กำลังโหลด...</div>}
       </section>
-    </section>
+    </div>
   );
 }
