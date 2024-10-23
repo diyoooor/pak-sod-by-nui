@@ -1,5 +1,5 @@
 "use client";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, Suspense, useEffect, useState } from "react";
 import ProductCard from "../components/Product/ProductCard";
 import { normalProducts } from "../data/products";
 import { Product } from "../types/product-type";
@@ -197,7 +197,7 @@ export default function ProductsPage() {
         setCategory(_mock_category_);
         break;
     }
-  }, []);
+  }, [searchParams]);
 
   const loadMoreProducts = () => {
     setLoading(true);
@@ -295,64 +295,66 @@ export default function ProductsPage() {
       <section className="text-3xl pb-4 pt-10 text-black mb-4 font-bold">
         รายการสินค้า {categories}
       </section>
-      <section className="py-4">
-        <TextField
-          label=""
-          type="text"
-          placeholder="พิพม์เพื่อค้นหา"
-          value={searchQuery}
-          onChange={handleSearchChange}
-        />
-        <div className="flex flex-nowrap overflow-auto space-x-2 px-2">
-          {category.map((item, idx) => {
-            return (
-              <button
-                key={idx}
-                onClick={() =>
-                  item.label === activeCat
-                    ? setActiveCat("")
-                    : setActiveCat(item.label)
-                }
-                className={`py-4 px-6 text-nowrap border rounded-xl flex items-center gap-2 ${
-                  item.label === activeCat
-                    ? "bg-light-primary text-white"
-                    : "bg-white text-black"
-                }`}
-              >
-                {item.label}
-              </button>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="flex px-4 justify-between text-xl mb-4 items-center">
-        <div>สินค้าทั้งหมด {filteredProducts.length}</div>
-        <div>
-          <SortInput sortBy={sortBy} setSortBy={setSortBy} />
-        </div>
-      </section>
-      <section className="flex flex-wrap justify-center gap-2 pb-10 px-2">
-        {filteredProducts.map((product, index) => (
-          <ProductCard
-            key={index + "-" + product.name}
-            className="w-[48%] bg-white"
-            id={product.id}
-            name={product.name}
-            type={product.type}
-            otherNames={product.otherNames}
-            category={product.category}
-            image={product.image}
-            prices={product.prices}
+      <Suspense fallback={<div>Loading...</div>}>
+        <section className="py-4">
+          <TextField
+            label=""
+            type="text"
+            placeholder="พิพม์เพื่อค้นหา"
+            value={searchQuery}
+            onChange={handleSearchChange}
           />
-        ))}
-        {loadings && <div className="text-gray-600">กำลังโหลด...</div>}
-        {filteredProducts.length === 0 && searchQuery && (
-          <div className="text-gray-600 text-2xl py-20">
-            ไม่พบสินค้าตามคำที่ค้นหา
+          <div className="flex flex-nowrap overflow-auto space-x-2 px-2">
+            {category.map((item, idx) => {
+              return (
+                <button
+                  key={idx}
+                  onClick={() =>
+                    item.label === activeCat
+                      ? setActiveCat("")
+                      : setActiveCat(item.label)
+                  }
+                  className={`py-4 px-6 text-nowrap border rounded-xl flex items-center gap-2 ${
+                    item.label === activeCat
+                      ? "bg-light-primary text-white"
+                      : "bg-white text-black"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
           </div>
-        )}
-      </section>
+        </section>
+
+        <section className="flex px-4 justify-between text-xl mb-4 items-center">
+          <div>สินค้าทั้งหมด {filteredProducts.length}</div>
+          <div>
+            <SortInput sortBy={sortBy} setSortBy={setSortBy} />
+          </div>
+        </section>
+        <section className="flex flex-wrap justify-center gap-2 pb-10 px-2">
+          {filteredProducts.map((product, index) => (
+            <ProductCard
+              key={index + "-" + product.name}
+              className="w-[48%] bg-white"
+              id={product.id}
+              name={product.name}
+              type={product.type}
+              otherNames={product.otherNames}
+              category={product.category}
+              image={product.image}
+              prices={product.prices}
+            />
+          ))}
+          {loadings && <div className="text-gray-600">กำลังโหลด...</div>}
+          {filteredProducts.length === 0 && searchQuery && (
+            <div className="text-gray-600 text-2xl py-20">
+              ไม่พบสินค้าตามคำที่ค้นหา
+            </div>
+          )}
+        </section>
+      </Suspense>
     </div>
   );
 }
