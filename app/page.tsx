@@ -13,6 +13,7 @@ import {
   IconBottle,
   IconToolsKitchen2,
   IconHourglassLow,
+  IconTags,
 } from "@tabler/icons-react";
 
 const LandingPage = () => {
@@ -79,7 +80,8 @@ const LandingPage = () => {
       </section>
 
       <section className="py-10 px-2 md:px-8 bg-gradient-to-br from-[#FF5F6D] to-[#FFC371] m-2 rounded-xl">
-        <h2 className="text-3xl font-semibold text-left mb-10 pl-4">
+        <h2 className="text-3xl font-semibold text-left mb-10 pl-4 flex">
+          <IconTags />
           สินค้าราคาพิเศษ
         </h2>
         <div className="flex flex-wrap justify-center w-full gap-4">

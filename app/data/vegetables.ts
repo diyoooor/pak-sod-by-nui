@@ -60,7 +60,7 @@ const vegetables = [
     name: "มะเขือเปราะ",
     otherNames: ["Thai Eggplant"],
     category: ["ผักยอดนิยม"],
-    image: "/images/products/eggplant.png",
+    image: "/images/products/thai-eggplant.png",
     prices: [
       { id: 1, value: 3.19, label: "กก." },
       { id: 2, value: 1.99, label: "ถุง" },
@@ -334,6 +334,10 @@ const vegetables = [
 
 export const highlightProducts = () => {
   return vegetables.filter((product) => product.id < 5);
+};
+
+export const normalProducts = () => {
+  return vegetables;
 };
 
 export const getPaginatedVegetables = (page: number, limit: number) => {
