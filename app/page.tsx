@@ -4,7 +4,7 @@ import Link from "next/link";
 import ProductCard from "./components/Product/ProductCard";
 import { Product } from "./types/product-type";
 import { useState } from "react";
-import { highlightProducts } from "./data/vegetables";
+import { highlightProducts } from "./data/products";
 import {
   IconSalad,
   IconMeat,
@@ -22,7 +22,7 @@ const LandingPage = () => {
   const _mock_category_ = [
     {
       id: 1,
-      label: "ผัก",
+      label: "ผักสด",
       icon: <IconSalad />,
     },
     {
@@ -70,12 +70,14 @@ const LandingPage = () => {
       </section>
       <section className="grid grid-flow-col overflow-scroll gap-4 py-12 px-6">
         {_mock_category_.map((cat, idx) => (
-          <div
+          <Link
             key={idx}
+            href={`/products?categories=${cat.label}`}
             className="px-6 py-4  bg-white text-nowrap rounded-xl flex items-center space-x-2"
           >
-            <p>{cat.icon}</p> <p className="text-md">{cat.label}</p>
-          </div>
+            <p>{cat.icon}</p>
+            <p className="text-md">{cat.label}</p>
+          </Link>
         ))}
       </section>
 
@@ -90,6 +92,7 @@ const LandingPage = () => {
               key={product.id}
               id={product.id}
               name={product.name}
+              type={product.type}
               otherNames={product.otherNames}
               category={product.category}
               image={product.image}
