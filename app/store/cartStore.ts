@@ -1,37 +1,25 @@
+import { Product } from "@/app/types/product-type";
 import { create } from "zustand";
 
 interface CartItem {
-  name: string;
-  unit: string;
-  price: number;
+  product: Product;
   quantity: number;
+  unit: string;
 }
 
 interface CartState {
-  cart: CartItem[];
-  addToCart: (item: CartItem) => void;
-  increaseQuantity: (name: string) => void;
-  decreaseQuantity: (name: string) => void;
+  cartItems: CartItem[];
+  // addToCart: (item: CartItem) => void;
+  // removeFromCart: (productId: number) => void;
+  // clearCart: () => void;
+  isCartOpen: boolean;
+  toggleCart: () => void;
 }
 
-export const useCartStore = create<CartState>((set) => ({
-  cart: [],
-  addToCart: (item) =>
-    set((state) => ({
-      cart: [...state.cart, item],
-    })),
-  increaseQuantity: (name) =>
-    set((state) => ({
-      cart: state.cart.map((item) =>
-        item.name === name ? { ...item, quantity: item.quantity + 1 } : item
-      ),
-    })),
-  decreaseQuantity: (name) =>
-    set((state) => ({
-      cart: state.cart.map((item) =>
-        item.name === name && item.quantity > 1
-          ? { ...item, quantity: item.quantity - 1 }
-          : item
-      ),
-    })),
+const useCartStore = create<CartState>((set) => ({
+  cartItems: [],
+  isCartOpen: false,
+  toggleCart: () => set((state) => ({ isCartOpen: !state.isCartOpen })),
 }));
+
+export default useCartStore;

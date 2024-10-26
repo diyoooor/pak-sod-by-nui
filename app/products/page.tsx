@@ -348,9 +348,9 @@ export default function ProductsPage() {
             />
           ))}
           {loadings && <div className="text-gray-600">กำลังโหลด...</div>}
-          {filteredProducts.length === 0 && searchQuery && (
-            <div className="text-gray-600 text-2xl py-20">
-              ไม่พบสินค้าตามคำที่ค้นหา
+          {filteredProducts.length === 0 && (
+            <div className="text-gray-600 text-2xl py-40">
+              ไม่พบรายการสินค้า
             </div>
           )}
         </section>

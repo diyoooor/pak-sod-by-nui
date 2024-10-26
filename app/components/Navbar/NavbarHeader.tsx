@@ -3,11 +3,11 @@ import { IconShoppingCart, IconUser } from "@tabler/icons-react";
 import ButtonLink from "../Button/ButtonLink";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import useCartStore from "@/app/store/cartStore";
 
 const NavbarHeader = () => {
-  // TODO :: Is authentication logic mocking
   const isAuthenticated = false;
-
+  const { toggleCart, isCartOpen } = useCartStore();
   const navigate = useRouter();
 
   return (
@@ -20,12 +20,11 @@ const NavbarHeader = () => {
           className={"object-cover"}
           alt="logo"
           onClick={() => {
-            // TODO :: Handle click event
             navigate.push("/");
           }}
         />
         <div className="flex items-center">
-          <ButtonLink href="/" icon={<IconShoppingCart />} />
+          <ButtonLink href="/cart" icon={<IconShoppingCart />}></ButtonLink>
           {isAuthenticated ? (
             <ButtonLink href="/profile" icon={<IconUser />} />
           ) : (
