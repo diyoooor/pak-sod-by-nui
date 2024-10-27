@@ -6,8 +6,8 @@ import { ReactNode } from "react";
 const BlankLayout = ({ children }: { children: ReactNode }) => {
   return (
     <>
-      <section className="flex  p-4 items-center w-screen justify-between">
-        <div className="flex text-nowrap w-full">
+      <section className="flex  p-4 items-center w-screen justify-between bg-gray-200">
+        <div className="flex text-nowrap w-full text-light-primary">
           <Link href={"/"}>
             <div className="flex items-center space-x-2">
               <IconArrowLeft />
@@ -26,7 +26,7 @@ const BlankLayout = ({ children }: { children: ReactNode }) => {
         </div>
         <div></div>
       </section>
-      <section>{children}</section>
+      <section className="bg-gray-200 min-h-screen">{children}</section>
     </>
   );
 };
