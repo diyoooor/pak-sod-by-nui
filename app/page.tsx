@@ -3,8 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ProductCard from "./components/Product/ProductCard";
 import { Product } from "./types/product-type";
-import { useState } from "react";
-import { highlightProducts } from "./data/products";
+import { useEffect, useState } from "react";
 import {
   IconSalad,
   IconMeat,
@@ -15,47 +14,59 @@ import {
   IconHourglassLow,
   IconTags,
 } from "@tabler/icons-react";
+import ProductCardSkeleton from "./components/Skeleton/ProductSkeleton";
 
 const LandingPage = () => {
-  const [products, setProducts] = useState<Product[]>(highlightProducts);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(false);
 
-  const _mock_category_ = [
+  const _static_category_ = [
     {
-      id: 1,
       label: "ผักสด",
       icon: <IconSalad />,
     },
     {
-      id: 2,
       label: "เนื้อสัตว์",
       icon: <IconMeat />,
     },
     {
-      id: 3,
       label: "อาหารทะเล",
       icon: <IconFish />,
     },
     {
-      id: 4,
       label: "ไข่",
       icon: <IconEgg />,
     },
     {
-      id: 5,
       label: "เครื่องปรุง",
       icon: <IconBottle />,
     },
     {
-      id: 6,
       label: "ของใช้ในครัว",
       icon: <IconToolsKitchen2 />,
     },
     {
-      id: 7,
       label: "ของดอง",
       icon: <IconHourglassLow />,
     },
   ];
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch("/api/products/highlight");
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   return (
     <div className="min-h-screen bg-light-main">
@@ -69,7 +80,7 @@ const LandingPage = () => {
         />
       </section>
       <section className="grid grid-flow-col overflow-scroll gap-4 py-12 px-6">
-        {_mock_category_.map((cat, idx) => (
+        {_static_category_.map((cat, idx) => (
           <Link
             key={idx}
             href={`/products?categories=${cat.label}`}
@@ -87,19 +98,20 @@ const LandingPage = () => {
           สินค้าราคาพิเศษ
         </h2>
         <div className="flex flex-wrap justify-center w-full gap-4">
-          {products.map((product) => (
-            <ProductCard
-              key={product.id}
-              id={product.id}
-              name={product.name}
-              type={product.type}
-              otherNames={product.otherNames}
-              category={product.category}
-              image={product.image}
-              prices={product.prices}
-              className="w-[45%]"
-            />
-          ))}
+          {loading
+            ? [...Array(6)].map((_, i) => <ProductCardSkeleton key={i} />)
+            : products.map((product, idx) => (
+                <ProductCard
+                  key={idx}
+                  name={product.name}
+                  type={product.type}
+                  otherNames={product.otherNames}
+                  category={product.category}
+                  image={product.image}
+                  prices={product.prices}
+                  className="w-[45%]"
+                />
+              ))}
         </div>
 
         <div className="mt-12 text-center">

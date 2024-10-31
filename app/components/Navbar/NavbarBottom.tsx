@@ -22,7 +22,7 @@ const NavbarBottom = () => {
 
   return (
     <>
-      <nav className="fixed bottom-0  w-full bg-white left-0 ">
+      <nav className="sticky bottom-0  w-full bg-white left-0 ">
         <div className="flex justify-around items-center py-4 h-20">
           {navMenu.map((item, index) => (
             <div key={index} onClick={() => setActivePath(item.href)}>

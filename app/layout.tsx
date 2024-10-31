@@ -16,7 +16,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     <RootLayout>
       {isAuthenticated ? (
         <AuthLayout>Auth</AuthLayout>
-      ) : ["/cart", "/search"].includes(pathName) ? (
+      ) : ["/cart", "/search", "/auth"].includes(pathName) ? (
         <BlankLayout>{children}</BlankLayout>
       ) : (
         <PublicLayout>{children}</PublicLayout>

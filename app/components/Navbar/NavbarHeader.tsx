@@ -29,7 +29,7 @@ const NavbarHeader = () => {
             <ButtonLink href="/profile" icon={<IconUser />} />
           ) : (
             <ButtonLink
-              href="/"
+              href="/auth"
               className="border active:bg-green-50"
               label="เข้าสู่ระบบ"
             />
