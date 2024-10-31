@@ -168,9 +168,9 @@ export default function ProductsPage() {
         <section className="flex flex-wrap justify-center gap-2 pb-10 px-2">
           {loading
             ? [...Array(6)].map((_, i) => <ProductCardSkeleton key={i} />)
-            : filteredProducts.map((product) => (
+            : filteredProducts.map((product, idx) => (
                 <ProductCard
-                  key={product.id}
+                  key={idx}
                   className="w-[48%] bg-white"
                   {...product}
                 />

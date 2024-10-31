@@ -24,9 +24,9 @@ const CartComponent: React.FC = () => {
 
           {cartItems.length > 0 ? (
             <>
-              {cartItems.map((item) => (
+              {cartItems.map((item, idx) => (
                 <div
-                  key={item.product.id + "-" + item.unit}
+                  key={idx + "-" + item.unit}
                   className="bg-white p-4 rounded-lg shadow-md mb-4 flex justify-between items-center"
                 >
                   <div>
