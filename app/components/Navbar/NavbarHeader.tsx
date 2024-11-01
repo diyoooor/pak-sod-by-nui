@@ -3,12 +3,18 @@ import { IconShoppingCart, IconUser } from "@tabler/icons-react";
 import ButtonLink from "../Button/ButtonLink";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import useCartStore from "@/app/store/cartStore";
+import { useLiffStore } from "@/app/store/useLiffStore";
+import { useEffect } from "react";
 
 const NavbarHeader = () => {
-  const isAuthenticated = false;
-  const { toggleCart, isCartOpen } = useCartStore();
   const navigate = useRouter();
+
+  const { isLoggedIn, profile, error, login, logout, initializeLiff } =
+    useLiffStore();
+
+  useEffect(() => {
+    initializeLiff();
+  }, [initializeLiff]);
 
   return (
     <nav className="sticky top-0 left-0 w-full bg-white h-20 px-2">
@@ -25,7 +31,8 @@ const NavbarHeader = () => {
         />
         <div className="flex items-center">
           <ButtonLink href="/cart" icon={<IconShoppingCart />}></ButtonLink>
-          {isAuthenticated ? (
+
+          {isLoggedIn ? (
             <ButtonLink href="/profile" icon={<IconUser />} />
           ) : (
             <ButtonLink

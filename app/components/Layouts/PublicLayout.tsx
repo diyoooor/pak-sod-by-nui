@@ -1,5 +1,3 @@
-// app/layouts/PublicLayout.tsx
-
 import { ReactNode } from "react";
 import NavbarHeader from "../Navbar/NavbarHeader";
 import NavbarBottom from "../Navbar/NavbarBottom";
