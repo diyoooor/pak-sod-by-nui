@@ -1,147 +1,147 @@
 export const _static_category_vegetable_ = [
   {
-    id: 2,
     label: "ร้านส้มตำ",
+    value: "1-1",
   },
   {
-    id: 3,
     label: "อาหารตามสั่ง",
+    value: "1-2",
   },
 ];
 
 export const _static_category_meat_ = [
   {
-    id: 2,
     label: "วัว",
+    value: "2-1",
   },
   {
-    id: 3,
     label: "หมู",
+    value: "2-2",
   },
   {
-    id: 4,
     label: "กบ",
+    value: "2-3",
   },
 ];
 
 export const _static_category_seafood_ = [
   {
-    id: 2,
     label: "ปลา",
+    value: "3-1",
   },
   {
-    id: 3,
     label: "หอย",
+    value: "3-2",
   },
   {
-    id: 4,
     label: "กุ้ง",
+    value: "3-3",
   },
   {
-    id: 5,
     label: "หมึก",
+    value: "3-4",
   },
 ];
 
 export const _static_category_egg_ = [
   {
-    id: 2,
     label: "เบอร์ 0",
+    value: "4-1",
   },
   {
-    id: 3,
     label: "เบอร์ 1",
+    value: "4-2",
   },
   {
-    id: 4,
     label: "เบอร์ 2",
+    value: "4-3",
   },
   {
-    id: 5,
     label: "เบอร์ 3",
+    value: "4-4",
   },
 ];
 
 export const _static_category_sauce_ = [
   {
-    id: 2,
     label: "ซีอิ้วขาว",
+    value: "5-1",
   },
   {
-    id: 3,
     label: "ซีอิ้วดำ",
+    value: "5-2",
   },
   {
-    id: 4,
     label: "น้ำปลา",
+    value: "5-3",
   },
   {
-    id: 5,
     label: "น้ำส้มสายชู",
+    value: "5-4",
   },
   {
-    id: 6,
     label: "ผงชูรส",
+    value: "5-5",
   },
 ];
 
 export const _static_category_kitchen_ = [
   {
-    id: 2,
     label: "ฟองน้ำ",
+    value: "6-1",
   },
   {
-    id: 3,
     label: "น้ำยาล้างจาน",
+    value: "6-2",
   },
   {
-    id: 4,
     label: "ถุง",
+    value: "6-3",
   },
 ];
 
 export const _static_category_aging_ = [
   {
-    id: 2,
     label: "ผักกาดดอง",
+    value: "7-1",
   },
   {
-    id: 3,
     label: "หน่อไม้ดอง",
+    value: "7-2",
   },
   {
-    id: 4,
     label: "งาน",
+    value: "7-3",
   },
 ];
 
 export const _static_category_ = [
   {
-    id: 1,
     label: "ผักสด",
+    value: "1",
   },
   {
-    id: 2,
     label: "เนื้อสัตว์",
+    value: "2",
   },
   {
-    id: 3,
     label: "อาหารทะเล",
+    value: "3",
   },
   {
-    id: 4,
     label: "ไข่",
+    value: "4",
   },
   {
-    id: 5,
     label: "เครื่องปรุง",
+    value: "5",
   },
   {
-    id: 6,
     label: "ของใช้ในครัว",
+    value: "6",
   },
   {
-    id: 7,
     label: "ของดอง",
+    value: "7",
   },
 ];

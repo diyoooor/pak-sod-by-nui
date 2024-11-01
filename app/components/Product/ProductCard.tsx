@@ -11,14 +11,7 @@ interface ProductCartProps extends Product {
 
 const ProductCard: React.FC<ProductCartProps> = ({ className, ...product }) => {
   const [selectedUnit, setSelectedUnit] = useState<string>("1kg");
-  const [selectedQuantity, setSelectedQuantity] = useState(1);
-  const [totalPrice, setTotalPrice] = useState(0);
-  const [unitPrice, setUnitPrice] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
-
-  const handleSelectUnit = (unit: string) => () => {
-    setSelectedUnit(unit);
-  };
 
   const handleAddToCart = (item: {
     quantity: number;
@@ -31,14 +24,14 @@ const ProductCard: React.FC<ProductCartProps> = ({ className, ...product }) => {
   };
   return (
     <div
-      className={`shadow-md  p-2 flex flex-col items-center  overflow-hidden rounded-lg bg-white   ${className}`}
+      className={`shadow-md  p-2 flex flex-col items-center  overflow-hidden rounded-lg bg-white h-full   ${className}`}
     >
       <Image
         src={product.image || "/images/no-image.jpg"}
         alt={product.name}
         width={200}
-        height={200}
-        className="rounded-md h-full object-contain p-4"
+        height={250}
+        className={"h-full object-fill p-4"}
       />
       <h2 className="text-xl font-light text-light-primary mt-4">
         {product.name}

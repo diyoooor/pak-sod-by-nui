@@ -97,7 +97,7 @@ const LandingPage = () => {
           <IconTags />
           สินค้าราคาพิเศษ
         </h2>
-        <div className="flex flex-wrap justify-center w-full gap-4">
+        <div className="grid grid-cols-2 w-full gap-4 p-4">
           {loading
             ? [...Array(6)].map((_, i) => <ProductCardSkeleton key={i} />)
             : products.map((product, idx) => (
@@ -109,7 +109,7 @@ const LandingPage = () => {
                   category={product.category}
                   image={product.image}
                   prices={product.prices}
-                  className="w-[45%]"
+                  className="w-full"
                 />
               ))}
         </div>
