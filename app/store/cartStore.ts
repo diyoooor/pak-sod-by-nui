@@ -9,9 +9,6 @@ interface CartItem {
 
 interface CartState {
   cartItems: CartItem[];
-  // addToCart: (item: CartItem) => void;
-  // removeFromCart: (productId: number) => void;
-  // clearCart: () => void;
   isCartOpen: boolean;
   toggleCart: () => void;
 }

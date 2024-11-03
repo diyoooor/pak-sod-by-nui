@@ -1,16 +1,19 @@
 "use client";
 import Image from "next/image";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { FormEvent, useState } from "react";
+import { useLiffStore } from "../store/useLiffStore";
 
-const ProfilePage = () => {
+const informationPage = () => {
   const [isEditing, setIsEditing] = useState(false);
-  const [profile, setProfile] = useState({
-    name: "ชุติพงศ์  เจริญเชาว์",
-    nickname: "แม็ค",
+  const { logout } = useLiffStore();
+
+  const [information, setInformation] = useState({
+    name: "",
+    nickname: "",
     shopName: "หลังขรรค์ชัย",
     phoneNumber: "123-456-7890",
     address: "1234 ศาลากลางน้ำ, สะเดา",
-    imageUrl: "/images/profile.jpg",
+    imageUrl: "",
   });
 
   const handleEditToggle = () => {
@@ -19,8 +22,8 @@ const ProfilePage = () => {
 
   const handleInputChange = (e: FormEvent<HTMLInputElement>) => {
     const { name, value } = e.currentTarget;
-    setProfile((prevProfile) => ({
-      ...prevProfile,
+    setInformation((previnformation) => ({
+      ...previnformation,
       [name]: value,
     }));
   };
@@ -31,11 +34,11 @@ const ProfilePage = () => {
 
       <div className="bg-white shadow-lg rounded-lg p-6 max-w-md mx-auto">
         <div className="text-center mb-6">
-          <Image
-            src={profile.imageUrl}
+          <img
+            src={information.imageUrl}
             width={32}
             height={32}
-            alt="Profile"
+            alt="information"
             className="w-32 h-32 object-cover rounded-full mx-auto"
           />
           {isEditing && (
@@ -47,7 +50,7 @@ const ProfilePage = () => {
                   const file = e.target.files?.[0];
                   if (file) {
                     const imageUrl = URL.createObjectURL(file);
-                    setProfile((prev) => ({ ...prev, imageUrl }));
+                    setInformation((prev) => ({ ...prev, imageUrl }));
                   }
                 }}
               />
@@ -61,12 +64,12 @@ const ProfilePage = () => {
             <input
               type="text"
               name="name"
-              value={profile.name}
+              value={information.name}
               onChange={handleInputChange}
               className="w-full p-2 border rounded"
             />
           ) : (
-            <p>{profile.name}</p>
+            <p>{information.name}</p>
           )}
         </div>
 
@@ -76,12 +79,12 @@ const ProfilePage = () => {
             <input
               type="text"
               name="nickname"
-              value={profile.nickname}
+              value={information.nickname}
               onChange={handleInputChange}
               className="w-full p-2 border rounded"
             />
           ) : (
-            <p>{profile.nickname}</p>
+            <p>{information.nickname}</p>
           )}
         </div>
 
@@ -91,12 +94,12 @@ const ProfilePage = () => {
             <input
               type="text"
               name="shopName"
-              value={profile.shopName}
+              value={information.shopName}
               onChange={handleInputChange}
               className="w-full p-2 border rounded"
             />
           ) : (
-            <p>{profile.shopName}</p>
+            <p>{information.shopName}</p>
           )}
         </div>
 
@@ -106,12 +109,12 @@ const ProfilePage = () => {
             <input
               type="text"
               name="phoneNumber"
-              value={profile.phoneNumber}
+              value={information.phoneNumber}
               onChange={handleInputChange}
               className="w-full p-2 border rounded"
             />
           ) : (
-            <p>{profile.phoneNumber}</p>
+            <p>{information.phoneNumber}</p>
           )}
         </div>
 
@@ -121,12 +124,12 @@ const ProfilePage = () => {
             <input
               type="text"
               name="address"
-              value={profile.address}
+              value={information.address}
               onChange={handleInputChange}
               className="w-full p-2 border rounded"
             />
           ) : (
-            <p>{profile.address}</p>
+            <p>{information.address}</p>
           )}
         </div>
 
@@ -139,10 +142,21 @@ const ProfilePage = () => {
           >
             {isEditing ? "Save" : "Edit"}
           </button>
+          <button
+            onClick={logout}
+            className="flex items-center justify-center px-6 py-3 rounded-lg bg-green-500 text-white  transition "
+          >
+            <img
+              src="/images/logo/line-icon.png"
+              alt="LINE"
+              className="w-6 h-6 mr-2"
+            />
+            Logout
+          </button>
         </div>
       </div>
     </div>
   );
 };
 
-export default ProfilePage;
+export default informationPage;
