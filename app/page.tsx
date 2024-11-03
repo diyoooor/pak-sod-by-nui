@@ -83,7 +83,7 @@ const LandingPage = () => {
         {_static_category_.map((cat, idx) => (
           <Link
             key={idx}
-            href={`/products?categories=${cat.label}`}
+            href={`/products/${cat.label}`}
             className="px-6 py-4  bg-white text-nowrap rounded-xl flex items-center space-x-2"
           >
             <p>{cat.icon}</p>
@@ -116,7 +116,7 @@ const LandingPage = () => {
 
         <div className="mt-12 text-center">
           <Link
-            href="/products"
+            href="/products/ทั้งหมด"
             className="bg-light-primary text-white py-3 px-6 rounded-md font-semibold hover:bg-green-700"
           >
             ดูสินค้าทั้งหมด

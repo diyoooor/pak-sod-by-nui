@@ -1,9 +1,9 @@
 "use client";
 import { FormEvent, useEffect, useState } from "react";
-import ProductCard from "../components/Product/ProductCard";
-import { Product } from "../types/product-type";
-import TextField from "../components/Input/TextField";
-import SortInput from "../components/Input/SortInput";
+import ProductCard from "../../components/Product/ProductCard";
+import { Product } from "../../types/product-type";
+import TextField from "../../components/Input/TextField";
+import SortInput from "../../components/Input/SortInput";
 import { useSearchParams } from "next/navigation";
 import {
   _static_category_,
@@ -14,9 +14,10 @@ import {
   _static_category_sauce_,
   _static_category_seafood_,
   _static_category_vegetable_,
-} from "../data/categories";
-import ProductCardSkeleton from "../components/Skeleton/ProductSkeleton";
+} from "../../data/categories";
+import ProductCardSkeleton from "../../components/Skeleton/ProductSkeleton";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter, useParams } from "next/navigation";
 
 export default function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -32,8 +33,9 @@ export default function ProductsPage() {
     []
   );
 
-  const searchParams = useSearchParams();
-  const categories = searchParams.get("categories");
+  const params = useParams<{ categories: string }>();
+
+  const categories = decodeURIComponent(params.categories);
 
   useEffect(() => {
     switch (categories) {
@@ -68,7 +70,7 @@ export default function ProductsPage() {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`/api/products`);
+        const response = await fetch(`/api/products?category=${categories}`);
         const data = await response.json();
         setFilteredProducts(data);
         setProducts(data);
