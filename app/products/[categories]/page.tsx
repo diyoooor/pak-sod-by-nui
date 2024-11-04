@@ -4,7 +4,6 @@ import ProductCard from "../../components/Product/ProductCard";
 import { Product } from "../../types/product-type";
 import TextField from "../../components/Input/TextField";
 import SortInput from "../../components/Input/SortInput";
-import { useSearchParams } from "next/navigation";
 import {
   _static_category_,
   _static_category_aging_,
@@ -16,8 +15,7 @@ import {
   _static_category_vegetable_,
 } from "../../data/categories";
 import ProductCardSkeleton from "../../components/Skeleton/ProductSkeleton";
-import { motion, AnimatePresence } from "framer-motion";
-import { useRouter, useParams } from "next/navigation";
+import { useParams } from "next/navigation";
 
 export default function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -64,7 +62,7 @@ export default function ProductsPage() {
         setCategory(_static_category_);
         break;
     }
-  }, []);
+  }, [categories]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -81,7 +79,7 @@ export default function ProductsPage() {
       }
     };
     fetchProducts();
-  }, []);
+  });
 
   useEffect(() => {
     let updatedProducts = products;

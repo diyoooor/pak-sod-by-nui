@@ -1,8 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
-  experimental: {
-    missingSuspenseWithCSRBailout: false,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "profile.line-scdn.net",
+        port: "",
+      },
+    ],
   },
 };
 

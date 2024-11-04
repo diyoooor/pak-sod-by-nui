@@ -1,11 +1,11 @@
 "use client";
-import Image from "next/image";
-import { FormEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLiffStore } from "../store/useLiffStore";
+import Image from "next/image";
 
-const informationPage = () => {
+const ProfilePage = () => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
-  const { logout, profile, loading } = useLiffStore();
+  const { logout, profile } = useLiffStore();
 
   const [displayName, setDisplayName] = useState<string>("");
   const [statusMessage, setStatusMessage] = useState<string>("");
@@ -29,33 +29,27 @@ const informationPage = () => {
     setIsEditing(!isEditing);
   };
 
-  const handleInputChange = (e: FormEvent<HTMLInputElement>) => {
-    const { name, value } = e.currentTarget;
-    // setInformation((previnformation) => ({
-    //   ...previnformation,
-    //   [name]: value,
-    // }));
-  };
+  const handleInputChange = () => {};
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <div className="min-h-screen bg-gray-100 p-6 ">
       <h1 className="text-3xl font-semibold text-center mb-6">ข้อมูลส่วนตัว</h1>
 
       <div className="bg-white shadow-lg rounded-lg p-6 max-w-md mx-auto ">
-        <div className="text-center mb-6 relative ">
-          <img
-            src={pictureUrl ?? ""}
-            width={32}
-            height={32}
+        <div className="text-center mb-6  ">
+          <Image
+            src={pictureUrl}
+            width={100}
+            height={100}
             alt="profile"
-            className="w-56 h-56 object-cover rounded-full mx-auto"
+            className="w-56 h-56 object-cover rounded-full mx-auto "
           />
         </div>
 
         <div className="mb-4">
           <label className="block font-semibold">ชื่อ</label>
           <p className="text-2xl font-semibold block border rounded-xl bg-gray-100 p-2">
-            {displayName}
+            {displayName} {statusMessage}
           </p>
         </div>
 
@@ -120,14 +114,16 @@ const informationPage = () => {
           </button>
         </div>
       </div>
-      <button
-        onClick={logout}
-        className="flex items-center justify-center  py-3 rounded-lg bg-red-500 text-white  transition mx-auto px-10 w-11/12 mt-4"
-      >
-        ออกจากระบบ
-      </button>
+      <section className="px-3">
+        <button
+          onClick={logout}
+          className="flex items-center justify-center  py-3 rounded-lg bg-red-500 text-white  transition mx-auto w-full  mt-4"
+        >
+          ออกจากระบบ
+        </button>
+      </section>
     </div>
   );
 };
 
-export default informationPage;
+export default ProfilePage;

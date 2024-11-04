@@ -14,7 +14,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     initializeLiff();
-  }, []);
+  }, [initializeLiff]);
 
   return (
     <RootLayout>

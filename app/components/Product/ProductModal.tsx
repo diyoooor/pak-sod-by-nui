@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { PricePerUnit, Product } from "@/app/types/product-type";
+import Image from "next/image";
 
 interface CartItem {
   product: Product;
@@ -54,11 +55,13 @@ const ProductModal: React.FC<ProductModalProps> = ({
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.3 }}
       >
-        <div className="text-center mb-4">
-          <img
+        <div className="text-center mb-4 ">
+          <Image
             src={product.image}
             alt={product.name}
-            className="w-40 h-40 object-contain mx-auto rounded-md"
+            width={100}
+            height={100}
+            className="w-80 h-56 object-contain mx-auto rounded-md my-8"
           />
         </div>
 

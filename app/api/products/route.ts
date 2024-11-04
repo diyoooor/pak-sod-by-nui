@@ -1,8 +1,7 @@
 import { connectToDatabase } from "@/app/lib/mongodb";
-import { NextApiRequest, NextApiResponse } from "next";
 import { NextResponse } from "next/server";
 
-export async function GET(req: Request, res: NextApiResponse) {
+export async function GET(req: Request) {
   const db = await connectToDatabase();
 
   const url = new URL(req.url!);

@@ -1,18 +1,18 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import TextField from "../components/Input/TextField";
 
 const SearchPage = () => {
-  const [keyword, setKeyword] = useState("");
   return (
     <div className="p-4">
       <section>
         <TextField
+          className="w-full"
           label="ค้นหาสินค้า"
           placeholder="พิมพ์เพื่อต้นหา"
+          value={""}
           type="text"
-          value={keyword}
-          onChange={(e: React.FormEvent<HTMLInputElement>) => {}}
+          onChange={() => {}}
         />
       </section>
       <section>Product List</section>

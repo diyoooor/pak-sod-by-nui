@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import useCartStore from "@/app/store/cartStore";
-import { Product } from "@/app/types/product-type";
 
 const CartComponent: React.FC = () => {
   const { cartItems, isCartOpen, toggleCart } = useCartStore();

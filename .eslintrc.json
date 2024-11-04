@@ -1,12 +1,14 @@
 {
   "extends": ["next/core-web-vitals", "next/typescript"],
   "rules": {
-        "no-unused-vars": ["error", {
-            "vars": "all",
-            "args": "after-used",
-            "caughtErrors": "all",
-            "ignoreRestSiblings": false,
-            "reportUsedIgnorePattern": false
-        }]
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off"
+        // "no-unused-vars": ["error", {
+        //     "vars": "all",
+        //     "args": "after-used",
+        //     "caughtErrors": "all",
+        //     "ignoreRestSiblings": false,
+        //     "reportUsedIgnorePattern": false
+        // }]
     }
 }

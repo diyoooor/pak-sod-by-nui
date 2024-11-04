@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { IconHome, IconSearch } from "@tabler/icons-react";
 import ButtonLink from "../Button/ButtonLink";
-import useCartStore from "@/app/store/cartStore";
 
 const NavbarBottom = () => {
   const [activePath, setActivePath] = useState<string>("/");

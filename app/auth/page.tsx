@@ -1,6 +1,7 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { useLiffStore } from "../store/useLiffStore";
+import Image from "next/image";
 
 const AuthPage = () => {
   const { error, login } = useLiffStore();
@@ -17,9 +18,11 @@ const AuthPage = () => {
           onClick={login}
           className="flex items-center justify-center px-6 py-3 rounded-lg bg-green-500 text-white  transition "
         >
-          <img
-            src="/images/logo/line-icon.png"
-            alt="LINE"
+          <Image
+            src={`/images/logo/line-icon.png`}
+            alt={"Line Authentication"}
+            width={6}
+            height={6}
             className="w-6 h-6 mr-2"
           />
           ลงชื่อเข้าใช้ด้วย LINE

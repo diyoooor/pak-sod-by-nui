@@ -10,7 +10,6 @@ interface ProductCartProps extends Product {
 }
 
 const ProductCard: React.FC<ProductCartProps> = ({ className, ...product }) => {
-  const [selectedUnit, setSelectedUnit] = useState<string>("1kg");
   const [isOpen, setIsOpen] = useState(false);
 
   const handleAddToCart = (item: {
