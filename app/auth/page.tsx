@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useLiffStore } from "../store/useLiffStore";
 
 const AuthPage = () => {
-  const { isLoggedIn, error, login } = useLiffStore();
+  const { error, login } = useLiffStore();
 
   if (error) return <div>{error}</div>;
 
@@ -13,7 +13,6 @@ const AuthPage = () => {
         กรุณาเข้าสู่ระบบเพื่อใช้งาน
       </h1>
       <section className=" w-8/12 flex flex-col gap-4">
-        {isLoggedIn ? "Logged In" : "Not logged"}
         <button
           onClick={login}
           className="flex items-center justify-center px-6 py-3 rounded-lg bg-green-500 text-white  transition "

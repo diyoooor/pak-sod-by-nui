@@ -9,12 +9,7 @@ import { useEffect } from "react";
 const NavbarHeader = () => {
   const navigate = useRouter();
 
-  const { isLoggedIn, profile, error, login, logout, initializeLiff } =
-    useLiffStore();
-
-  useEffect(() => {
-    initializeLiff();
-  }, [initializeLiff]);
+  const { isLoggedIn } = useLiffStore();
 
   return (
     <nav className="sticky top-0 left-0 w-full bg-white h-20 px-2">

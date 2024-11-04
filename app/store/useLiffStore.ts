@@ -6,6 +6,9 @@ interface LiffProfile {
   displayName: string;
   pictureUrl?: string;
   statusMessage?: string;
+  phoneNumber?: string;
+  shopName?: string;
+  address?: string;
 }
 
 interface LiffState {
@@ -25,17 +28,55 @@ export const useLiffStore = create<LiffState>((set) => ({
   loading: true,
   initializeLiff: async () => {
     try {
-      await liff.init({ liffId: process.env.NEXT_PUBLIC_LIFF_ID! });
+      await liff.init({ liffId: process.env.NEXT_PUBLIC_LIFF_ID! }).then(() => {
+        if (liff.isLoggedIn()) {
+          liff
+            .getProfile()
+            .then(async (profile) => {
+              set({
+                isLoggedIn: true,
+                profile,
+              });
 
-      if (liff.isLoggedIn()) {
-        const profile = await liff.getProfile();
-        set({ isLoggedIn: true, profile, loading: false });
-      } else {
-        set({ loading: false });
-      }
+              const data = await fetch(`api/users?userId=${profile.userId}`, {
+                method: "GET",
+              }).then((response) => response.json());
+
+              if (!data) {
+                fetch("api/users/", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type":
+                      "application/json,application/x-www-form-urlencoded",
+                  },
+                  body: JSON.stringify({
+                    userId: profile.userId,
+                    displayName: profile.displayName,
+                    pictureUrl: profile.pictureUrl,
+                    shopName: "หลังขรรค์ชัย",
+                    phoneNumber: "123-456-7890",
+                    address: "1234 ��า��า��ลา��น้ำ, สะเดา",
+                  }),
+                });
+              } else {
+                set({
+                  isLoggedIn: true,
+                  profile: data,
+                });
+              }
+            })
+            .catch((err) => {
+              console.error("Error getting profile:", err);
+            });
+        } else {
+          set({ loading: false });
+        }
+      });
     } catch (err) {
       console.error("LIFF initialization failed", err);
       set({ error: "LIFF initialization failed", loading: false });
+    } finally {
+      set({ loading: false });
     }
   },
 
@@ -50,5 +91,6 @@ export const useLiffStore = create<LiffState>((set) => ({
       liff.logout();
       set({ isLoggedIn: false, profile: undefined });
     }
+    window.location.href = "/";
   },
 }));

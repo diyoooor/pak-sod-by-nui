@@ -1,20 +1,29 @@
 "use client";
 import Image from "next/image";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useLiffStore } from "../store/useLiffStore";
 
 const informationPage = () => {
-  const [isEditing, setIsEditing] = useState(false);
-  const { logout } = useLiffStore();
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const { logout, profile, loading } = useLiffStore();
 
-  const [information, setInformation] = useState({
-    name: "",
-    nickname: "",
-    shopName: "หลังขรรค์ชัย",
-    phoneNumber: "123-456-7890",
-    address: "1234 ศาลากลางน้ำ, สะเดา",
-    imageUrl: "",
-  });
+  const [displayName, setDisplayName] = useState<string>("");
+  const [statusMessage, setStatusMessage] = useState<string>("");
+  const [shopName, setShopName] = useState<string>("");
+  const [phoneNumber, setPhoneNumber] = useState<string>("");
+  const [address, setAddress] = useState<string>("");
+  const [pictureUrl, setPictureUrl] = useState<string>("");
+
+  useEffect(() => {
+    if (profile) {
+      setDisplayName(profile.displayName);
+      setStatusMessage(profile.statusMessage ?? "");
+      setShopName(profile.shopName ?? "");
+      setPhoneNumber(profile.phoneNumber ?? "");
+      setAddress(profile.address ?? "");
+      setPictureUrl(profile.pictureUrl ?? "");
+    }
+  }, [profile]);
 
   const handleEditToggle = () => {
     setIsEditing(!isEditing);
@@ -22,70 +31,32 @@ const informationPage = () => {
 
   const handleInputChange = (e: FormEvent<HTMLInputElement>) => {
     const { name, value } = e.currentTarget;
-    setInformation((previnformation) => ({
-      ...previnformation,
-      [name]: value,
-    }));
+    // setInformation((previnformation) => ({
+    //   ...previnformation,
+    //   [name]: value,
+    // }));
   };
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <h1 className="text-3xl font-semibold text-center mb-6">ข้อมูลส่วนตัว</h1>
 
-      <div className="bg-white shadow-lg rounded-lg p-6 max-w-md mx-auto">
-        <div className="text-center mb-6">
+      <div className="bg-white shadow-lg rounded-lg p-6 max-w-md mx-auto ">
+        <div className="text-center mb-6 relative ">
           <img
-            src={information.imageUrl}
+            src={pictureUrl ?? ""}
             width={32}
             height={32}
-            alt="information"
-            className="w-32 h-32 object-cover rounded-full mx-auto"
+            alt="profile"
+            className="w-56 h-56 object-cover rounded-full mx-auto"
           />
-          {isEditing && (
-            <div className="mt-4">
-              <input
-                type="file"
-                className="block mx-auto"
-                onChange={(e) => {
-                  const file = e.target.files?.[0];
-                  if (file) {
-                    const imageUrl = URL.createObjectURL(file);
-                    setInformation((prev) => ({ ...prev, imageUrl }));
-                  }
-                }}
-              />
-            </div>
-          )}
         </div>
 
         <div className="mb-4">
           <label className="block font-semibold">ชื่อ</label>
-          {isEditing ? (
-            <input
-              type="text"
-              name="name"
-              value={information.name}
-              onChange={handleInputChange}
-              className="w-full p-2 border rounded"
-            />
-          ) : (
-            <p>{information.name}</p>
-          )}
-        </div>
-
-        <div className="mb-4">
-          <label className="block font-semibold">ชื่อเล่น</label>
-          {isEditing ? (
-            <input
-              type="text"
-              name="nickname"
-              value={information.nickname}
-              onChange={handleInputChange}
-              className="w-full p-2 border rounded"
-            />
-          ) : (
-            <p>{information.nickname}</p>
-          )}
+          <p className="text-2xl font-semibold block border rounded-xl bg-gray-100 p-2">
+            {displayName}
+          </p>
         </div>
 
         <div className="mb-4">
@@ -94,12 +65,14 @@ const informationPage = () => {
             <input
               type="text"
               name="shopName"
-              value={information.shopName}
+              value={shopName}
               onChange={handleInputChange}
               className="w-full p-2 border rounded"
             />
           ) : (
-            <p>{information.shopName}</p>
+            <p className="text-2xl font-semibold block border rounded-xl bg-gray-100 p-2">
+              {shopName}
+            </p>
           )}
         </div>
 
@@ -109,27 +82,30 @@ const informationPage = () => {
             <input
               type="text"
               name="phoneNumber"
-              value={information.phoneNumber}
+              value={phoneNumber}
               onChange={handleInputChange}
               className="w-full p-2 border rounded"
             />
           ) : (
-            <p>{information.phoneNumber}</p>
+            <p className="text-2xl font-semibold block border rounded-xl bg-gray-100 p-2">
+              {phoneNumber}
+            </p>
           )}
         </div>
 
         <div className="mb-4">
-          <label className="block font-semibold">ที่อยู่</label>
+          <label className="block font-semibold">รายละเอียดที่อยู่</label>
           {isEditing ? (
-            <input
-              type="text"
+            <textarea
               name="address"
-              value={information.address}
-              onChange={handleInputChange}
+              defaultValue={address}
+              readOnly
               className="w-full p-2 border rounded"
             />
           ) : (
-            <p>{information.address}</p>
+            <p className="text-2xl font-semibold block border rounded-xl bg-gray-100 p-2">
+              {address}
+            </p>
           )}
         </div>
 
@@ -140,21 +116,16 @@ const informationPage = () => {
               isEditing ? "bg-blue-500" : "bg-green-600"
             } text-white py-2 px-6 rounded-md font-semibold hover:bg-opacity-90`}
           >
-            {isEditing ? "Save" : "Edit"}
-          </button>
-          <button
-            onClick={logout}
-            className="flex items-center justify-center px-6 py-3 rounded-lg bg-green-500 text-white  transition "
-          >
-            <img
-              src="/images/logo/line-icon.png"
-              alt="LINE"
-              className="w-6 h-6 mr-2"
-            />
-            Logout
+            {isEditing ? "บันทึก" : "แก้ไขข้อมูล"}
           </button>
         </div>
       </div>
+      <button
+        onClick={logout}
+        className="flex items-center justify-center  py-3 rounded-lg bg-red-500 text-white  transition mx-auto px-10 w-11/12 mt-4"
+      >
+        ออกจากระบบ
+      </button>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: false,
   experimental: {
-    // รอถามผู้รู้
     missingSuspenseWithCSRBailout: false,
   },
 };
