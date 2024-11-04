@@ -2,7 +2,7 @@ import { cors } from "@/app/lib/cors";
 import { connectToDatabase } from "@/app/lib/mongodb";
 import { NextResponse } from "next/server";
 
-export async function GET(req: Request, res: Response) {
+export async function GET(req: Request) {
   const db = await connectToDatabase();
   const url = new URL(req.url!);
   const searchParams = new URLSearchParams(url.search);
