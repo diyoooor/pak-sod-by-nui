@@ -38,9 +38,12 @@ export const useLiffStore = create<LiffState>((set) => ({
                 profile,
               });
 
-              const data = await fetch(`api/users?userId=${profile.userId}`, {
-                method: "GET",
-              }).then((response) => response.json());
+              const data = await fetch(
+                `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/users?userId=${profile.userId}`,
+                {
+                  method: "GET",
+                }
+              ).then((response) => response.json());
 
               if (!data) {
                 fetch("api/users/", {

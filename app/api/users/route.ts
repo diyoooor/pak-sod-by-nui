@@ -1,3 +1,4 @@
+import { cors } from "@/app/lib/cors";
 import { connectToDatabase } from "@/app/lib/mongodb";
 import { NextResponse } from "next/server";
 
@@ -11,8 +12,8 @@ export async function GET(req: Request) {
 
   const user = await db.collection("users").findOne({ userId });
 
-  if (!user) return NextResponse.json({ message: "User not found" });
-  return NextResponse.json(user);
+  if (!user) return cors(NextResponse.json({ message: "User not found" }));
+  return cors(NextResponse.json(user));
 }
 
 export async function POST(req: Request) {
@@ -27,12 +28,12 @@ export async function POST(req: Request) {
     !body.phoneNumber ||
     !body.address
   ) {
-    return NextResponse.json({ error: "Missing required fields" });
+    return cors(NextResponse.json({ error: "Missing required fields" }));
   }
 
   const regex = /^0[0-9]{2}-[0-9]{3}-[0-9]{4}$/;
   if (!regex.test(body.phoneNumber)) {
-    return NextResponse.json({ error: "Invalid phone number format" });
+    return cors(NextResponse.json({ error: "Invalid phone number format" }));
   }
 
   const existingUser = await db
@@ -44,5 +45,5 @@ export async function POST(req: Request) {
 
   await db.collection("users").insertOne(body);
 
-  return NextResponse.json({ message: "User created successfully" });
+  return cors(NextResponse.json({ message: "User created successfully" }));
 }
