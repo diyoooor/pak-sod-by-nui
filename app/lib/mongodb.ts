@@ -1,17 +1,16 @@
-import { MongoClient, Db } from "mongodb";
+import { MongoClient } from "mongodb";
 
-let client: MongoClient | null = null;
-let db: Db | null = null;
-
-const uri = process.env.MONGODB_URI as string;
-
-export async function connectToDatabase() {
-  if (!client) {
-    client = new MongoClient(uri);
-    await client.connect();
-  }
-  if (!db) {
-    db = client.db(process.env.MONGODB_DB_NAME);
-  }
-  return db;
+if (!process.env.MONGODB_URI) {
+  throw new Error("Please add your Mongo URI to .env.local");
 }
+
+const uri: string = process.env.MONGODB_URI;
+const options = {};
+
+let client;
+let clientPromise: Promise<MongoClient>;
+
+client = new MongoClient(uri, options);
+clientPromise = client.connect();
+
+export default clientPromise;
