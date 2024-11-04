@@ -68,7 +68,9 @@ export default function ProductsPage() {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`/api/products?category=${categories}`);
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/products?category=${categories}`
+        );
         const data = await response.json();
         setFilteredProducts(data);
         setProducts(data);

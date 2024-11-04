@@ -34,7 +34,9 @@ const LandingPage = () => {
     const fetchHighlightedProducts = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`/api/products/highlight`);
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/products/highlight`
+        );
         if (!res.ok) throw new Error("Failed to fetch products");
         const data = await res.json();
         setProducts(data);
