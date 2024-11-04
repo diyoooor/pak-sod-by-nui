@@ -79,7 +79,7 @@ export default function ProductsPage() {
       }
     };
     fetchProducts();
-  });
+  }, [categories]);
 
   useEffect(() => {
     let updatedProducts = products;
