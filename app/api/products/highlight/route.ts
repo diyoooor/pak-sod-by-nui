@@ -1,9 +1,10 @@
 import { cors } from "@/app/lib/cors";
-import { connectToDatabase } from "@/app/lib/mongodb";
+import clientPromise from "@/app/lib/mongodb";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const db = await connectToDatabase();
+  const client = await clientPromise;
+  const db = client.db("paksod");
 
   const products = await db.collection("products").find().limit(6).toArray();
   const response = NextResponse.json(products);
