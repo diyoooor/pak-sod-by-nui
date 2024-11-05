@@ -1,9 +1,10 @@
 import { cors } from "@/app/lib/cors";
-import { connectToDatabase } from "@/app/lib/mongodb";
+import clientPromise from "@/app/lib/mongodb";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
-  const db = await connectToDatabase();
+  const client = await clientPromise;
+  const db = client.db("paksod");
 
   const url = new URL(req.url!);
   const searchParams = new URLSearchParams(url.search);
@@ -17,7 +18,8 @@ export async function GET(req: Request) {
 }
 
 export async function POST(req: Request) {
-  const db = await connectToDatabase();
+  const client = await clientPromise;
+  const db = client.db("paksod");
   const body = await req.json();
 
   if (
