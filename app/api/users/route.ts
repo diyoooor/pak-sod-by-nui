@@ -12,15 +12,22 @@ export async function GET(req: Request) {
 
   const userId = searchParams.get("userId");
 
-  const user = await db.collection("users").findOne({ userId });
+  try {
+    const user = await db.collection("users").findOne({ userId });
 
-  if (!user) return cors(NextResponse.json({ message: "User not found" }));
-  return cors(NextResponse.json(user));
+    if (!user) return cors(NextResponse.json({ message: "User not found" }));
+    return cors(NextResponse.json(user));
+  } catch (error) {
+    console.error("Error creating user:", error);
+    return cors(
+      NextResponse.json({ error: "Internal Server Error" }, { status: 500 })
+    );
+  }
 }
 
 export async function POST(req: Request) {
+  const client = await clientPromise;
   try {
-    const client = await clientPromise;
     const db = client.db("paksod");
     const body = await req.json();
 
@@ -65,9 +72,9 @@ export async function POST(req: Request) {
 }
 
 export async function PATCH(req: Request) {
+  const client = await clientPromise;
+  const db = client.db("paksod");
   try {
-    const client = await clientPromise;
-    const db = client.db("paksod");
     const body: Partial<LiffProfile> = await req.json();
 
     if (!body.userId) {
@@ -98,8 +105,4 @@ export async function PATCH(req: Request) {
       NextResponse.json({ error: "Internal Server Error" }, { status: 500 })
     );
   }
-}
-
-export async function PUT(req: Request) {
-  // Update user
 }

@@ -9,15 +9,23 @@ export async function GET(req: Request) {
   const searchParams = new URLSearchParams(url.search);
   const category = searchParams.get("category");
 
-  if (category === "ทั้งหมด") {
-    const products = await db.collection("products").find().toArray();
-    return cors(NextResponse.json(products));
-  } else {
-    const products = await db
-      .collection("products")
-      .find({ category })
-      .toArray();
+  try {
+    if (category === "ทั้งหมด") {
+      const products = await db.collection("products").find().toArray();
+      return cors(NextResponse.json(products));
+    } else {
+      const products = await db
+        .collection("products")
+        .find({ category })
+        .toArray();
 
-    return cors(NextResponse.json(products));
+      return cors(NextResponse.json(products));
+    }
+  } catch (error) {
+    console.error("Error fetching search results:", error);
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 }
+    );
   }
 }

@@ -166,7 +166,7 @@ const ProfilePage = () => {
                 <button
                   type={"button"}
                   onClick={handleEditToggle}
-                  className={`"border-green-600 border text-light-primary border-green-500 text-green-500 py-2 px-6 rounded-md font-semibold hover:bg-opacity-90`}
+                  className={`"border-green-600 border  border-green-500 text-green-500 py-2 px-6 rounded-md font-semibold hover:bg-opacity-90`}
                 >
                   {"ยกเลิก"}
                 </button>
