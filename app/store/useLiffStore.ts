@@ -1,7 +1,8 @@
 import { create } from "zustand";
 import liff from "@line/liff";
+import { BASE_API_URL } from "../utils/environments";
 
-interface LiffProfile {
+export interface LiffProfile {
   userId: string;
   displayName: string;
   pictureUrl?: string;
@@ -38,35 +39,36 @@ export const useLiffStore = create<LiffState>((set) => ({
                 profile,
               });
 
-              const data = await fetch(
-                `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/users?userId=${profile.userId}`,
-                {
-                  method: "GET",
-                }
-              ).then((response) => response.json());
+              const profileData = await fetch(
+                `${BASE_API_URL}/api/users?userId=${profile.userId}`
+              ).then(async (data) => await data.json());
 
-              if (!data) {
-                fetch("api/users/", {
+              if (profileData.length === 0) {
+                fetch(`${BASE_API_URL}/api/users`, {
                   method: "POST",
                   headers: {
-                    "Content-Type":
-                      "application/json,application/x-www-form-urlencoded",
+                    "Content-Type": "application/json",
                   },
                   body: JSON.stringify({
                     userId: profile.userId,
                     displayName: profile.displayName,
                     pictureUrl: profile.pictureUrl,
-                    shopName: "หลังขรรค์ชัย",
-                    phoneNumber: "123-456-7890",
-                    address: "1234 ��า��า��ลา��น้ำ, สะเดา",
+                    shopName: "-",
+                    phoneNumber: "-",
+                    address: "-",
                   }),
                 });
-              } else {
+
                 set({
                   isLoggedIn: true,
-                  profile: data,
+                  profile: profile,
                 });
               }
+
+              set({
+                isLoggedIn: true,
+                profile: profileData,
+              });
             })
             .catch((err) => {
               console.error("Error getting profile:", err);
@@ -94,6 +96,7 @@ export const useLiffStore = create<LiffState>((set) => ({
       liff.logout();
       set({ isLoggedIn: false, profile: undefined });
     }
+    localStorage.clear();
     window.location.href = "/";
   },
 }));

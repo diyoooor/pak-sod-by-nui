@@ -26,7 +26,7 @@ const TextField: React.FC<DynamicInputProps> = ({
   suffixIcon,
 }) => {
   return (
-    <div className={`mb-4 mx-2  ${className}`}>
+    <div className={`mb-4  ${className}`}>
       <label className="block font-semibold mb-2">{label}</label>
       <div className="flex items-center border rounded">
         {prefixIcon && <span className="p-2 bg-gray-100">{prefixIcon}</span>}
