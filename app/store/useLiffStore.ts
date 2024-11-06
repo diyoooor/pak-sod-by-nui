@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import liff from "@line/liff";
 import { BASE_API_URL } from "../utils/environments";
+import { isLoggedIn } from "@liff/is-logged-in";
 
 export interface LiffProfile {
   userId: string;
@@ -18,6 +19,7 @@ interface LiffState {
   error: string | null;
   loading: boolean;
   initializeLiff: () => Promise<void>;
+  setProfile: (profile: LiffProfile) => void;
   login: () => void;
   logout: () => void;
 }
@@ -58,17 +60,12 @@ export const useLiffStore = create<LiffState>((set) => ({
                     address: "-",
                   }),
                 });
-
+              } else {
                 set({
                   isLoggedIn: true,
-                  profile: profile,
+                  profile: profileData,
                 });
               }
-
-              set({
-                isLoggedIn: true,
-                profile: profileData,
-              });
             })
             .catch((err) => {
               console.error("Error getting profile:", err);
@@ -98,5 +95,8 @@ export const useLiffStore = create<LiffState>((set) => ({
     }
     localStorage.clear();
     window.location.href = "/";
+  },
+  setProfile: (profile: LiffProfile) => {
+    set({ profile });
   },
 }));

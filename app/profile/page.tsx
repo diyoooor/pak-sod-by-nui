@@ -6,7 +6,7 @@ import { BASE_API_URL } from "../utils/environments";
 
 const ProfilePage = () => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
-  const { logout, profile } = useLiffStore();
+  const { logout, profile, setProfile, loading } = useLiffStore();
 
   const [displayName, setDisplayName] = useState<string>("-");
   const [shopName, setShopName] = useState<string>("-");
@@ -18,10 +18,10 @@ const ProfilePage = () => {
 
   useEffect(() => {
     if (profile) {
-      setDisplayName(profile.displayName ?? "-");
-      setShopName(profile.shopName ?? "-");
-      setPhoneNumber(profile.phoneNumber ?? "-");
-      setAddress(profile.address ?? "-");
+      setDisplayName(profile.displayName ?? "");
+      setShopName(profile.shopName ?? "");
+      setPhoneNumber(profile.phoneNumber ?? "");
+      setAddress(profile.address ?? "");
       setPictureUrl(profile.pictureUrl ?? "/images/products/no-image.jpg");
     }
   }, [profile]);
@@ -60,6 +60,14 @@ const ProfilePage = () => {
 
       if (response.ok) {
         alert("บันทึกข้อมูลสำเร็จ");
+        setProfile({
+          userId: profile!.userId,
+          displayName,
+          pictureUrl,
+          shopName,
+          phoneNumber,
+          address,
+        });
         setIsEditing(false);
       } else {
         alert("เกิดข้อผิดพลาดในการบันทึกข้อมูล");
@@ -88,7 +96,8 @@ const ProfilePage = () => {
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block font-semibold">ชื่อ</label>
-            <p className="text-2xl font-semibold block border rounded-xl bg-gray-100 p-2">
+
+            <p className="text-2xl h-12 font-semibold block border rounded-xl bg-gray-100 p-2">
               {displayName}
             </p>
           </div>
@@ -104,7 +113,7 @@ const ProfilePage = () => {
                 className="w-full p-2 border rounded"
               />
             ) : (
-              <p className="text-2xl font-semibold block border rounded-xl bg-gray-100 p-2">
+              <p className="text-2xl font-semibold block border rounded-xl bg-gray-100 p-2 h-12">
                 {shopName}
               </p>
             )}
@@ -121,7 +130,7 @@ const ProfilePage = () => {
                 className="w-full p-2 border rounded"
               />
             ) : (
-              <p className="text-2xl font-semibold block border rounded-xl bg-gray-100 p-2">
+              <p className="text-2xl font-semibold block border rounded-xl bg-gray-100 p-2 h-12">
                 {phoneNumber}
               </p>
             )}
@@ -137,7 +146,7 @@ const ProfilePage = () => {
                 className="w-full p-2 border rounded"
               />
             ) : (
-              <p className="text-2xl font-semibold block border rounded-xl bg-gray-100 p-2">
+              <p className="text-2xl font-semibold block border rounded-xl bg-gray-100 p-2 h-12">
                 {address}
               </p>
             )}
