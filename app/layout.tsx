@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 
   return (
     <RootLayout>
-      {["/cart", "/search", "/auth"].includes(pathName) ? (
+      {["/cart", "/search", "/auth", "/checkout"].includes(pathName) ? (
         <BlankLayout>{children}</BlankLayout>
       ) : (
         <PublicLayout>{children}</PublicLayout>

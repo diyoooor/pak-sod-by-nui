@@ -14,17 +14,18 @@ export interface LiffProfile {
 
 interface LiffState {
   isLoggedIn: boolean;
-  profile: LiffProfile | undefined;
+  profile: LiffProfile;
   error: string | null;
   loading: boolean;
   initializeLiff: () => Promise<void>;
+  setProfile: (profile: LiffProfile) => void;
   login: () => void;
   logout: () => void;
 }
 
 export const useLiffStore = create<LiffState>((set) => ({
   isLoggedIn: false,
-  profile: undefined,
+  profile: {} as LiffProfile,
   error: null,
   loading: true,
   initializeLiff: async () => {
@@ -58,17 +59,12 @@ export const useLiffStore = create<LiffState>((set) => ({
                     address: "-",
                   }),
                 });
-
+              } else {
                 set({
                   isLoggedIn: true,
-                  profile: profile,
+                  profile: profileData,
                 });
               }
-
-              set({
-                isLoggedIn: true,
-                profile: profileData,
-              });
             })
             .catch((err) => {
               console.error("Error getting profile:", err);
@@ -98,5 +94,8 @@ export const useLiffStore = create<LiffState>((set) => ({
     }
     localStorage.clear();
     window.location.href = "/";
+  },
+  setProfile: (profile: LiffProfile) => {
+    set({ profile });
   },
 }));

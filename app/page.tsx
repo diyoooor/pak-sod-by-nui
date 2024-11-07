@@ -85,6 +85,7 @@ const LandingPage = () => {
             : products.map((product, idx) => (
                 <ProductCard
                   key={idx}
+                  _id={product._id}
                   name={product.name}
                   type={product.type}
                   otherNames={product.otherNames}
