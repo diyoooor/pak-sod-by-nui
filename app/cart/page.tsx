@@ -93,11 +93,11 @@ const CartPage = () => {
                       รวม: ฿ {numberWithComma(item.price * item.quantity)}
                     </div>
                     <button
-                      className="text-md flex items-center border rounded-lg p-1"
+                      className="text-md flex items-center border rounded-lg p-1 w-full text-center"
                       onClick={() => removeFromCart(item.productId)}
                     >
                       <IconTrash className="h-4 " />
-                      <p> ลบสินค้า</p>
+                      <p>ลบ</p>
                     </button>
                   </div>
                 </div>
@@ -125,7 +125,7 @@ const CartPage = () => {
             cartItems.length === 0 ? `bg-gray-400` : `bg-light-primary`
           }   text-white`}
         >
-          ชำระเงิน
+          ดำเนินการ
         </button>
       </section>
     </div>

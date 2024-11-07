@@ -6,7 +6,7 @@ import { BASE_API_URL } from "../utils/environments";
 
 const ProfilePage = () => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
-  const { logout, profile, setProfile, loading } = useLiffStore();
+  const { logout, profile, setProfile } = useLiffStore();
 
   const [displayName, setDisplayName] = useState<string>("-");
   const [shopName, setShopName] = useState<string>("-");
