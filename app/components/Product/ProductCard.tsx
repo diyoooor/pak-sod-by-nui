@@ -12,15 +12,6 @@ interface ProductCartProps extends Product {
 const ProductCard: React.FC<ProductCartProps> = ({ className, ...product }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleAddToCart = (item: {
-    quantity: number;
-    unit: string;
-    product: Product;
-  }) => {
-    console.log(
-      `Added ${item.quantity} ${item.unit} of ${item.product.name} to cart`
-    );
-  };
   return (
     <div
       className={`shadow-md  p-2 flex flex-col items-center  overflow-hidden rounded-lg bg-white h-full   ${className}`}
@@ -50,7 +41,6 @@ const ProductCard: React.FC<ProductCartProps> = ({ className, ...product }) => {
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
         product={product}
-        addToCart={handleAddToCart}
       />
     </div>
   );

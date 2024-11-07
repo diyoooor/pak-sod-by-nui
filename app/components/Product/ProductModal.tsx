@@ -2,30 +2,29 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { PricePerUnit, Product } from "@/app/types/product-type";
 import Image from "next/image";
+import useCartStore, { Item } from "@/app/store/cartStore";
+import { useLiffStore } from "@/app/store/useLiffStore";
+import { useRouter } from "next/navigation";
 
-interface CartItem {
-  product: Product;
-  quantity: number;
-  unit: string;
-}
 interface ProductModalProps {
   isOpen: boolean;
   onClose: () => void;
   product: Product;
-  addToCart: (cartItem: CartItem) => void;
 }
 
 const ProductModal: React.FC<ProductModalProps> = ({
   isOpen,
   onClose,
   product,
-  addToCart,
 }) => {
   const [quantity, setQuantity] = useState(1);
   const [selectedPricePerUnit, setSelectedPricePerUnit] = useState(
     product.prices[0].value
   );
   const [selectedUnit, setSelectedUnit] = useState(product.prices[0].label);
+  const router = useRouter();
+  const { addToCart } = useCartStore();
+  const { isLoggedIn } = useLiffStore();
 
   const handleQuantityChange = (type: string) => {
     if (type === "increase") {
@@ -41,7 +40,20 @@ const ProductModal: React.FC<ProductModalProps> = ({
   };
 
   const handleAddToCart = () => {
-    addToCart({ product, quantity, unit: selectedUnit });
+    if (!isLoggedIn) {
+      router.push("/auth");
+    }
+
+    const newItem: Item = {
+      productId: product._id,
+      name: product.name,
+      price: selectedPricePerUnit,
+      quantity,
+      unit: selectedUnit,
+      image: product.image,
+    };
+
+    addToCart(newItem);
     onClose();
   };
 
