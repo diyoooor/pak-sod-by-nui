@@ -114,7 +114,7 @@ const CartPage = () => {
       <section className="p-4 fixed bottom-0 left-0 w-full  bg-slate-100 flex items-center flex-col">
         <div className="flex justify-between w-full mb-4 text-2xl font-bold">
           <h2>รวมทั้งหมด</h2>
-          <h2>฿ {numberWithComma(cartTotal)}</h2>
+          <h2>฿ {numberWithComma(cartTotal.toFixed(2))}</h2>
         </div>
         <button
           disabled={cartItems.length === 0}
