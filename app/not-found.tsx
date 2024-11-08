@@ -2,7 +2,7 @@ import { IconBarrierBlock } from "@tabler/icons-react";
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="flex flex-col items-center justify-center py-20">
       <h1 className="text-4xl font-bold mb-4">กำลังปรับปรุงแก้ไข</h1>
       <IconBarrierBlock className="h-52 w-10/12 my-6" />
       <p className="text-xl">เรากำลังพัฒนาระบบให้ดียิ่งขึ้น</p>

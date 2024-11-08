@@ -2,11 +2,13 @@
 import React from "react";
 import { numberWithComma } from "../utils/common";
 import { useLiffStore } from "../store/useLiffStore";
+import useCartStore from "../store/cartStore";
+import { useRouter } from "next/navigation";
 
 const CheckoutPage = () => {
   const { profile } = useLiffStore();
-  const mock = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
+  const { cartItems, cartTotal, clearCart } = useCartStore();
+  const router = useRouter();
   return (
     <section className="p-4">
       <h2 className="text-3xl font-semibold text-center mb-8">รายการสินค้า</h2>
@@ -31,31 +33,36 @@ const CheckoutPage = () => {
       </section>
       <section className="pt-2">
         <div className="grid grid-cols-1 bg-white rounded-lg p-2">
-          {mock.map((item, idx) => (
+          {cartItems.map((item, idx) => (
             <div
               key={idx}
               className="w-full border-b py-1 grid grid-cols-2 border-dotted px-2 "
             >
-              <p>{item}.ชื่อผัก x 10 กก</p>
-              <p className="text-end">฿ {numberWithComma("199")}</p>
+              <p>
+                {item.name} x {item.quantity} {item.unit}
+              </p>
+              <p className="text-end">
+                ฿ {numberWithComma((item.quantity * item.price).toFixed(2))}
+              </p>
             </div>
           ))}
-          <div className="pt-4 grid grid-cols-2 text-xl">
-            <p>ทั้งหมด {mock.length} รายการ</p>
-            <p className="text-end">฿ {numberWithComma("199")}</p>
+          <div className="p-2 grid grid-cols-2 underline-offset-2 underline decoration-double bg-gray-100 rounded-lg">
+            <p>ทั้งหมด {cartItems.length} รายการ</p>
+            <p className="text-end">
+              ฿ {numberWithComma(cartTotal.toFixed(2))}
+            </p>
           </div>
         </div>
       </section>
       <section className="p-4 fixed bottom-0 left-0 w-full  bg-slate-100 flex items-center flex-col">
-        <div className="flex justify-between w-full mb-4 text-2xl font-bold">
-          <h2>ยอดสุทธิ</h2>
-          <h2>฿ {numberWithComma(999)}</h2>
-        </div>
         <button
-          onClick={() => {}}
+          onClick={() => {
+            clearCart();
+            router.push("/success");
+          }}
           className={`w-full border py-3 rounded-lg bg-light-primary  text-white`}
         >
-          ดำเนินการ
+          ยืนยันคำสั่งซื้อ
         </button>
       </section>
     </section>
